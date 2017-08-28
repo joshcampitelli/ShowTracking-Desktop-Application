@@ -5,7 +5,7 @@ import DataStorage.MySQLQueries;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Program {
+public class Structure {
     private MySQLQueries mySQLQueries;
     private String username;
 
@@ -62,6 +62,16 @@ public class Program {
                 password = getInput("Enter your password");
             } while (!DataValidation.validUser(username) || !DataValidation.validPass(password));
         } while (!AccountAccess.login(username, password));
+    }
+
+    public boolean login(String username, String password) {
+        if (!DataValidation.validUser(username) || !DataValidation.validPass(password)) {
+            return false;
+        } else if (!AccountAccess.login(username, password)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private void createAccount() {

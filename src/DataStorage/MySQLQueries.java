@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class MySQLQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
-    private String databaseUsername = "admin";
-    private String databasePassword = "password";
+    private String databaseUserName = "admin";
+    private String databasePassWord = "password";
     /**
-     * This method assumes the data being given is in the correct format, and valid although will
+     * This method assumes the Data being given is in the correct format, and valid although will
      * catch duplicate user names.
      */
     public void addAccount(String firstName, String lastName, String username, String password) {
@@ -21,7 +21,7 @@ public class MySQLQueries {
 
         try {
             // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
             //2. Create Query
             String sql = "INSERT INTO user_accounts"
@@ -52,13 +52,13 @@ public class MySQLQueries {
     }
 
     /**
-     * This method assumes the data being given is in the correct format, and valid although will
+     * This method assumes the Data being given is in the correct format, and valid although will
      * catch duplicate user names.
      */
     public void addShow(String showName, int season, int episode, String username) {
         try {
             // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
             String sql = "INSERT INTO " + username + "shows"
                     + " (name, season, episode)"
@@ -86,7 +86,7 @@ public class MySQLQueries {
     public void alterSeason(String username, String show, int season) {
         try {
             // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
             String sql = "UPDATE " + username + "shows"
                     + " SET season = " + season
@@ -110,7 +110,7 @@ public class MySQLQueries {
     public void alterEpisode(String username, String show, int episode) {
         try {
             // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
             String sql = "UPDATE " + username + "shows"
                     + " SET episode = " + episode
@@ -128,7 +128,7 @@ public class MySQLQueries {
 
     public boolean showTracked(String username, String name) {
         try {
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
             String sql = "SELECT name FROM " + username + "shows" + " WHERE name = ?";
             PreparedStatement ps = myConn.prepareStatement(sql);
             ps.setString (1, name);
@@ -145,7 +145,7 @@ public class MySQLQueries {
     public ArrayList<Show> getAllShows(String username) {
         ArrayList<Show> showList = new ArrayList<>();
         try {
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
             String sql = "Select * From " + username + "shows";
             PreparedStatement ps = myConn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

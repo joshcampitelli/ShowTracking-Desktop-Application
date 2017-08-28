@@ -2,12 +2,13 @@ package Authentication;
 
 import java.sql.*;
 
+/**
+ * Created by Josh on 2017-06-26.
+ */
 public class AccountAccess {
     public static Boolean login(String username, String password) {
         String databaseUserName = "admin";
         String databasePassWord = "password";
-        String usernameInDatabase = "";
-        String passwordInDatabase = "";
         String encodedPassword = Encryption.MD5(password);
         String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
 
@@ -21,11 +22,11 @@ public class AccountAccess {
             ResultSet rs = stmt.executeQuery(sql);
             // Check Username and Password
             while (rs.next()) {
-                usernameInDatabase = rs.getString("userName");
-                passwordInDatabase = rs.getString("password");
+                databaseUserName = rs.getString("userName");
+                databasePassWord = rs.getString("password");
             }
 
-            if (usernameInDatabase.equals(username) && passwordInDatabase.equals(encodedPassword)) {
+            if (databaseUserName.equals(username) && databasePassWord.equals(encodedPassword)) {
                 myConn.close();
                 System.out.println("[Important] Successfully Logged in!");
                 return true;

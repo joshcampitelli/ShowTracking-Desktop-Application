@@ -11,14 +11,14 @@ import java.sql.Statement;
 public class TestConnection {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/user_accounts?autoReconnect=true&useSSL=false";
-        String databaseUsername = "admin";
-        String databasePassword = "password";
+        String user = "admin";
+        String password = "password";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUsername, databasePassword);
+            Connection myConn = DriverManager.getConnection(url, user, password);
 
             // 2. Create a statement
             Statement myStmnt = myConn.createStatement();
@@ -26,7 +26,7 @@ public class TestConnection {
             // 3. Execute SQL query
             String sql = "INSERT INTO user_info"
                     + " (firstName, lastName, chips, userName, password)"
-                    + " VALUES ('Josh', 'Campitelli', 1000, 'Username', 'Password')";
+                    + " VALUES ('josh', 'campitelli', 1000, 'username', 'password')";
 
             myStmnt.executeUpdate(sql);
 
