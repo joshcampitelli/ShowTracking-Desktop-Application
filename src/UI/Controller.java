@@ -26,12 +26,16 @@ public class Controller implements Initializable {
         Structure structure = new Structure();
         structure.login(usernameField.getText(), passwordField.getText());
     }
-    public void startSignup(ActionEvent event) {
-        System.out.println("Sign Up Clicked:");
-        System.out.println("Username: " + usernameField.getText());
-        System.out.println("Password: " + passwordField.getText() + "\n");
-        ShowTracker showTracker = new ShowTracker();
-        
 
+    //Todo: If Signup button pressed create new sigup window, create account, close, re-open login window.
+    public void startSignup(ActionEvent event) {
+        Structure structure = new Structure();
+        System.out.println("Sign Up Clicked");
+        //structure.createAccount(usernameField.getText(), passwordField.getText());
+    }
+
+    public void createAccount(ActionEvent event) {
+        Structure structure = new Structure();
+        System.out.println("Create Account Clicked");
     }
 }

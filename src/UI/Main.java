@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LoginWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignUpWindow.fxml"));
         primaryStage.setTitle("ShowTracker Login");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
