@@ -15,7 +15,7 @@ public class MySQLQueries {
      * This method assumes the Data being given is in the correct format, and valid although will
      * catch duplicate user names.
      */
-    public void addAccount(String firstName, String lastName, String username, String password) {
+    public boolean addAccount(String firstName, String lastName, String username, String password) {
         String encodedPass = Encryption.MD5(password);
         password = "";
 
@@ -42,12 +42,15 @@ public class MySQLQueries {
             statement.executeUpdate();
             myConn.close();
             System.out.println("[Important] Successfully Created Account!");
+            return true;
         } catch (SQLIntegrityConstraintViolationException e) {
             // Duplicate entry
             System.out.println("[Important] Account already exists!");
+            return false;
         } catch (SQLException e) {
             // Other SQL Exception
             e.printStackTrace();
+            return false;
         }
     }
 

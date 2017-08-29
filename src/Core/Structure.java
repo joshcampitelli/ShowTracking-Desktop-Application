@@ -90,11 +90,11 @@ public class Structure {
         login();
     }
 
-    public void createAccount(String username, String password) {
-        if (DataValidation.validUser(username) && DataValidation.validPass(password)) {
-            mySQLQueries.addAccount("FirstName", "LastName", username, password);
-            login(username, password);
-        }
+    public boolean createAccount(String username, String password, String firstName, String lastName) {
+        if (DataValidation.validUser(username) && DataValidation.validPass(password) && mySQLQueries.addAccount(firstName, lastName, username, password))
+            return true;
+        else
+            return false;
     }
 
     private void modifyShow() {
