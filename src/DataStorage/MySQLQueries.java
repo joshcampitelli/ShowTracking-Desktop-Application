@@ -56,7 +56,7 @@ public class MySQLQueries {
 
         rs = statement.executeQuery();
 
-        if(!rs.next()) {
+        if(rs.next()) {
             System.out.println("Username " + username + " already exists.");
             return true;
         }

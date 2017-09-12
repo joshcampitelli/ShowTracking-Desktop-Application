@@ -35,7 +35,12 @@ public class Controller implements Initializable {
     public ListView dataList;
 
     private Framework framework = new Framework();
-
+    int loginHeight = 275;
+    int loginWidth = 300;
+    private int signupHeight = loginHeight;
+    private int signupWidth = loginWidth;
+    private int mainHeight = 400;
+    private int mainWidth = 600;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
@@ -43,7 +48,7 @@ public class Controller implements Initializable {
     public void startLogin(ActionEvent event) {
         framework.login(usernameField.getText(), passwordField.getText());
         closeStage(loginbtn);
-        createStage("MainWindow", "Show Tracking", 600, 400);
+        createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
     }
 
     public void getData(ActionEvent event) {
@@ -53,7 +58,7 @@ public class Controller implements Initializable {
 
     public void startSignup(ActionEvent event) {
         closeStage(signupbtn);
-        createStage("SignUpWindow", "SignUp Window", 300, 275);
+        createStage("SignUpWindow", "SignUp Window", signupWidth, signupHeight);
     }
 
     public void createAccount(ActionEvent event) {
@@ -67,7 +72,7 @@ public class Controller implements Initializable {
 
         framework.createAccount(usernameFieldSU.getText(), passwordFieldSU.getText(), firstnameFieldSU.getText(), lastnameFieldSU.getText());
         closeStage(createAccountbtn);
-        createStage("LoginWindow", "Login Window", 300, 275);
+        createStage("LoginWindow", "Login Window", loginWidth, loginHeight);
     }
 
     private void closeStage(Button button) {

@@ -38,7 +38,7 @@
                         <Image url="@Data/password%20logo.png" />
                     </image></ImageView>
                 <Button id="signupbtn" fx:id="createAccountbtn" layoutX="85.0" layoutY="244.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="132.0" text="Create Account" />
-                <Text layoutX="55.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="190.00909423828125">
+                <Text layoutX="56.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="190.00909423828125">
                     <font>
                         <Font size="32.0" />
                     </font>
