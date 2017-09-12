@@ -1,6 +1,5 @@
 package UI;
-import Core.ShowTracker;
-import Core.Structure;
+import Core.Framework;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
@@ -25,15 +25,25 @@ public class Controller implements Initializable {
     @FXML
     public TextField usernameField;
     public TextField passwordField;
-    public TextField firstnameField;
-    public TextField lastnameField;
+    public TextField usernameFieldSU;
+    public TextField passwordFieldSU;
+    public TextField firstnameFieldSU;
+    public TextField lastnameFieldSU;
+
+    @FXML
+    public ListView dataList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 
     public void startLogin(ActionEvent event) {
-        Structure structure = new Structure();
-        structure.login(usernameField.getText(), passwordField.getText());
+        Framework framework = new Framework();
+        framework.login(usernameField.getText(), passwordField.getText());
+    }
+
+    public void getData(ActionEvent event) {
+        //dataList.getItems().add(new CustomCell());
+        dataList.getItems().add("SHOW NAME");
     }
 
     public void startSignup(ActionEvent event) {
@@ -42,8 +52,15 @@ public class Controller implements Initializable {
     }
 
     public void createAccount(ActionEvent event) {
-        Structure structure = new Structure();
-        if (structure.createAccount(usernameField.getText(), passwordField.getText(), firstnameField.getText(), lastnameField.getText())) {
+        Framework framework = new Framework();
+        System.out.println("Firstname: " + firstnameFieldSU.getText());
+        System.out.println("Lastname: " + lastnameFieldSU.getText());
+        System.out.println("username: " + usernameFieldSU.getText());
+        System.out.println("password: " + passwordFieldSU.getText());
+
+
+        //TODO: IF ACCOUNT USERNAME AVAILABLE, THEN CREATE ACCOUNT... DONT CHECK IF CREATE ACCOUNT!
+        if (framework.createAccount(usernameFieldSU.getText(), passwordFieldSU.getText(), firstnameFieldSU.getText(), lastnameFieldSU.getText())) {
             closeStage(createAccountbtn);
             createStage("LoginWindow", "Login Window", 300, 275);
         } else {
@@ -54,7 +71,6 @@ public class Controller implements Initializable {
     private void closeStage(Button button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 

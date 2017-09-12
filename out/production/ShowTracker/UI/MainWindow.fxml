@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://jgit bashavafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="UI.Controller"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+   <children>
+      <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#getData" prefHeight="275.0" prefWidth="458.0">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </ListView>
+   </children>
 </AnchorPane>
