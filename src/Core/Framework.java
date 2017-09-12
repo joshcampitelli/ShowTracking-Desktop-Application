@@ -2,6 +2,9 @@ package Core;
 
 import Authentication.*;
 import DataStorage.MySQLQueries;
+
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,6 +18,7 @@ public class Structure {
         return input.nextLine();
     }
 
+    //TODO: Structure is used by UI now, should probably be static?
     private int getInt(String message) {
         try {
             return Integer.parseInt(getInput(message));
@@ -74,6 +78,7 @@ public class Structure {
         }
     }
 
+    /*
     private void createAccount() {
         String username;
         String password;
@@ -90,12 +95,29 @@ public class Structure {
         login();
     }
 
+    //Convoluted and messy... should'nt be calling method within if condition, replace method with two below.
     public boolean createAccount(String username, String password, String firstName, String lastName) {
         if (DataValidation.validUser(username) && DataValidation.validPass(password) && mySQLQueries.addAccount(firstName, lastName, username, password))
             return true;
         else
             return false;
     }
+
+*/
+    public boolean usernameTaken(String username) {
+        return true; //mySQLQueries.accountAvailable(username);
+    }
+
+    public void createAccount1(String username, String password, String firstName, String lastName) {
+        try {
+            mySQLQueries.addAccount(firstName, lastName, username, password); //Should be throwing exceptions at a low level!
+        } catch (SQLIntegrityConstraintViolationException e) {
+            // Duplicate entry
+            System.out.println("[Important] Account already exists!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+}
 
     private void modifyShow() {
         System.out.println("Current Shows being Tracked:");
