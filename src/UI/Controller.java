@@ -1,4 +1,5 @@
 package UI;
+import Authentication.DataValidation;
 import Core.Framework;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,12 +34,16 @@ public class Controller implements Initializable {
     @FXML
     public ListView dataList;
 
+    private Framework framework = new Framework();
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 
     public void startLogin(ActionEvent event) {
-        Framework framework = new Framework();
         framework.login(usernameField.getText(), passwordField.getText());
+        closeStage(loginbtn);
+        createStage("MainWindow", "Show Tracking", 600, 400);
     }
 
     public void getData(ActionEvent event) {
@@ -52,20 +57,17 @@ public class Controller implements Initializable {
     }
 
     public void createAccount(ActionEvent event) {
-        Framework framework = new Framework();
-        System.out.println("Firstname: " + firstnameFieldSU.getText());
-        System.out.println("Lastname: " + lastnameFieldSU.getText());
-        System.out.println("username: " + usernameFieldSU.getText());
-        System.out.println("password: " + passwordFieldSU.getText());
-
-
-        //TODO: IF ACCOUNT USERNAME AVAILABLE, THEN CREATE ACCOUNT... DONT CHECK IF CREATE ACCOUNT!
-        if (framework.createAccount(usernameFieldSU.getText(), passwordFieldSU.getText(), firstnameFieldSU.getText(), lastnameFieldSU.getText())) {
-            closeStage(createAccountbtn);
-            createStage("LoginWindow", "Login Window", 300, 275);
-        } else {
-            alertWindow("Create Account", "Failed to Create New Account", "Incorrect username or password, usernames and passwords must be at least 8 characters.");
+        if (!DataValidation.validUser(usernameFieldSU.getText()) || !DataValidation.validPass(passwordFieldSU.getText())) {
+            alertWindow("Create Account", "Failed to Create New Account", "Username or Password entered is incorrect, must both be at least 8 characters.");
+            return;
+        } else if (framework.usernameExists(usernameFieldSU.getText())) {
+            alertWindow("Create Account", "Failed to Create New Account", "Username Entered already exists, please try again.");
+           return;
         }
+
+        framework.createAccount(usernameFieldSU.getText(), passwordFieldSU.getText(), firstnameFieldSU.getText(), lastnameFieldSU.getText());
+        closeStage(createAccountbtn);
+        createStage("LoginWindow", "Login Window", 300, 275);
     }
 
     private void closeStage(Button button) {

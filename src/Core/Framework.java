@@ -53,7 +53,7 @@ public class Framework {
         }
     }
 
-    private boolean usernameExists(String username) {
+    public boolean usernameExists(String username) {
         try {
             return mySQLQueries.usernameExists(username);
         } catch (SQLException e) {
