@@ -7,23 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be8ebc13-4f00-43b9-8b66-16e690a23438" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UI/CustomCell.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Core/ShowTracker.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Core/Structure.java" afterPath="$PROJECT_DIR$/src/Core/Framework.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/Authentication/AccountAccess.class" afterPath="$PROJECT_DIR$/out/production/ShowTracker/Authentication/AccountAccess.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/Core/Structure.class" afterPath="$PROJECT_DIR$/out/production/ShowTracker/Core/Structure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/DataStorage/MySQLQueries.class" afterPath="$PROJECT_DIR$/out/production/ShowTracker/DataStorage/MySQLQueries.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/UI/Controller.class" afterPath="$PROJECT_DIR$/out/production/ShowTracker/UI/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/UI/Main.class" afterPath="$PROJECT_DIR$/out/production/ShowTracker/UI/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/UI/MainWindow.fxml" afterPath="$PROJECT_DIR$/out/production/ShowTracker/UI/MainWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ShowTracker/UI/SignUpWindow.fxml" afterPath="$PROJECT_DIR$/out/production/ShowTracker/UI/SignUpWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Authentication/AccountAccess.java" afterPath="$PROJECT_DIR$/src/Authentication/AccountAccess.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataStorage/MySQLQueries.java" afterPath="$PROJECT_DIR$/src/DataStorage/MySQLQueries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UI/Controller.java" afterPath="$PROJECT_DIR$/src/UI/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UI/Main.java" afterPath="$PROJECT_DIR$/src/UI/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UI/MainWindow.fxml" afterPath="$PROJECT_DIR$/src/UI/MainWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UI/SignUpWindow.fxml" afterPath="$PROJECT_DIR$/src/UI/SignUpWindow.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,21 +32,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MySQLQueries.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MySQLQueries.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DataStorage/MySQLQueries.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+            <state relative-caret-position="136">
+              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-                <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-                <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-                <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-                <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-                <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-                <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-                <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+                <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+                <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+                <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+                <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+                <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+                <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+                <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+                <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
               </folding>
             </state>
           </provider>
@@ -80,46 +65,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/MainWindow.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/CustomCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#816#817#0" expanded="false" />
-                <element signature="e#888#889#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#550#551#0" expanded="false" />
-                <element signature="e#578#579#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -130,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Framework.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Framework.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Framework.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1071">
@@ -142,13 +87,55 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Show.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Core/Show.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AccountAccess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/AccountAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+            <state relative-caret-position="170">
+              <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
               <folding>
-                <marker date="1504844076637" expanded="true" signature="660:758" ph="SELECT * FRO... user_accounts" />
+                <marker date="1505187373987" expanded="true" signature="657:755" ph="SELECT * FRO... user_accounts" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataValidation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/DataValidation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/Encryption.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestConnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/TestConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <marker date="1503937804000" expanded="true" signature="843:1023" ph="INSERT INTO user_info... " />
               </folding>
             </state>
           </provider>
@@ -214,11 +201,11 @@
         <option value="$PROJECT_DIR$/src/UI/SignUpWindow.fxml" />
         <option value="$PROJECT_DIR$/src/UI/CustomCell.java" />
         <option value="$PROJECT_DIR$/src/UI/Main.java" />
-        <option value="$PROJECT_DIR$/src/Authentication/AccountAccess.java" />
         <option value="$PROJECT_DIR$/src/UI/Controller.java" />
-        <option value="$PROJECT_DIR$/src/DataStorage/MySQLQueries.java" />
         <option value="$PROJECT_DIR$/src/Core/Structure.java" />
         <option value="$PROJECT_DIR$/src/Core/Framework.java" />
+        <option value="$PROJECT_DIR$/src/Authentication/AccountAccess.java" />
+        <option value="$PROJECT_DIR$/src/DataStorage/MySQLQueries.java" />
       </list>
     </option>
   </component>
@@ -873,12 +860,12 @@
       <workItem from="1503722397583" duration="1303000" />
       <workItem from="1503870377633" duration="1955000" />
       <workItem from="1504841578524" duration="3276000" />
-      <workItem from="1505184352731" duration="2752000" />
+      <workItem from="1505184352731" duration="3020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53082000" />
+    <option name="totallyTimeSpent" value="53350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -944,14 +931,14 @@
           <caret line="80" column="5" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>
@@ -995,7 +982,7 @@
         <state relative-caret-position="150">
           <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding>
-            <marker date="1504844076637" expanded="true" signature="660:758" ph="SELECT * FRO... user_accounts" />
+            <marker date="1505187373987" expanded="true" signature="657:755" ph="SELECT * FRO... user_accounts" />
           </folding>
         </state>
       </provider>
@@ -1006,14 +993,14 @@
           <caret line="80" column="5" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>
@@ -1042,14 +1029,14 @@
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>
@@ -1094,14 +1081,14 @@
           <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>
@@ -1143,14 +1130,14 @@
           <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>
@@ -1171,54 +1158,10 @@
     <entry file="file://$PROJECT_DIR$/src/Drivers/mysql-connector-java-5.1.42/src/testsuite/BaseTestCase.java" />
     <entry file="file://$PROJECT_DIR$/src/DataStorage/LocalStorage.java" />
     <entry file="file://$PROJECT_DIR$/src/DataStorage/DataOperations.java" />
-    <entry file="file://$PROJECT_DIR$/src/Core/Show.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
           <caret line="1773" column="0" lean-forward="false" selection-start-line="1773" selection-start-column="0" selection-end-line="1773" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/TestConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <marker date="1503937804000" expanded="true" signature="843:1023" ph="INSERT INTO user_info... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Encryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/DataValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/AccountAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <marker date="1504844076637" expanded="true" signature="660:758" ph="SELECT * FRO... user_accounts" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1286,28 +1229,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataStorage/MySQLQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1505187073973" expanded="true" signature="918:1047" ph="INSERT INTO user_accounts... " />
-            <marker date="1505187073973" expanded="true" signature="1507:1591" ph="CREATE TABLE... missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="1959:2010" ph="SELECT usern... user_accounts" />
-            <marker date="1505187073973" expanded="true" signature="2970:3094" ph="INSERT INTO missingValueshows... " />
-            <marker date="1505187073973" expanded="true" signature="4121:4254" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5157:5292" ph="UPDATE missi... " />
-            <marker date="1505187073973" expanded="true" signature="5830:5888" ph="SELECT name missingValueshows" />
-            <marker date="1505187073973" expanded="true" signature="6485:6520" ph="Select * Fro... missingValueshows" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/ShowTracker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Show.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1318,6 +1251,60 @@
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/AccountAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding>
+            <marker date="1505187373987" expanded="true" signature="657:755" ph="SELECT * FRO... user_accounts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/DataValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/TestConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <marker date="1503937804000" expanded="true" signature="843:1023" ph="INSERT INTO user_info... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataStorage/MySQLQueries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1505187373969" expanded="true" signature="915:1044" ph="INSERT INTO user_accounts... " />
+            <marker date="1505187373969" expanded="true" signature="1504:1588" ph="CREATE TABLE... missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="1956:2007" ph="SELECT usern... user_accounts" />
+            <marker date="1505187373969" expanded="true" signature="2967:3091" ph="INSERT INTO missingValueshows... " />
+            <marker date="1505187373969" expanded="true" signature="4118:4251" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5154:5289" ph="UPDATE missi... " />
+            <marker date="1505187373969" expanded="true" signature="5827:5885" ph="SELECT name missingValueshows" />
+            <marker date="1505187373969" expanded="true" signature="6482:6517" ph="Select * Fro... missingValueshows" />
           </folding>
         </state>
       </provider>

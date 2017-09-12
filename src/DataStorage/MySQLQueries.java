@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MySQLQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
-    private String databasePassWord = "JoshCamp123";
+    private String databasePassWord = "password";
     /**
      * This method assumes the Data being given is in the correct format, and valid although will
      * catch duplicate user names.

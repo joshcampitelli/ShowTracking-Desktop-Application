@@ -8,7 +8,7 @@ import java.sql.*;
 public class AccountAccess {
     public static Boolean login(String username, String password) {
         String databaseUserName = "admin";
-        String databasePassWord = "JoshCamp123";
+        String databasePassWord = "password";
         String encodedPassword = Encryption.MD5(password);
         String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
 
