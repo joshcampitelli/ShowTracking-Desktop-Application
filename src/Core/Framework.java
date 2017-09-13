@@ -1,19 +1,22 @@
 package Core;
 
-import Authentication.*;
-import DataStorage.MySQLQueries;
+import DataOperations.*;
+import DataStorage.AccountQueries;
+import DataStorage.ShowQueries;
+
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Framework Class Provides the functionality to the UI, it encapsulates the MySQLQueries methods.
+ * Framework Class Provides the functionality to the UI, it encapsulates the ShowQueries methods.
  * Designed to extract the methods for the GUI Controller class.
  */
 
 public class Framework {
-    private MySQLQueries mySQLQueries = new MySQLQueries();
+    private ShowQueries showQueries = new ShowQueries();
+    private AccountQueries accountQueries = new AccountQueries();
     private String username;
 
     private String getInput(String message) {
@@ -46,7 +49,7 @@ public class Framework {
     public boolean login(String username, String password) {
         if (!DataValidation.validUser(username) || !DataValidation.validPass(password)) {
             return false;
-        } else if (!AccountAccess.login(username, password)) {
+        } else if (!AccountQueries.login(username, password)) {
             return false;
         } else {
             return true;
@@ -55,7 +58,7 @@ public class Framework {
 
     public boolean usernameExists(String username) {
         try {
-            return mySQLQueries.usernameExists(username);
+            return accountQueries.usernameExists(username);
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -64,7 +67,7 @@ public class Framework {
 
     public void createAccount(String username, String password, String firstName, String lastName) {
         try {
-            mySQLQueries.addAccount(firstName, lastName, username, password);
+            accountQueries.addAccount(firstName, lastName, username, password);
         } catch (SQLIntegrityConstraintViolationException e) {
             // Duplicate entry
             System.out.println("[Important] Account already exists!");

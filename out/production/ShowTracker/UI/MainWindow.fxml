@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
    <children>
-      <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#getData" prefHeight="275.0" prefWidth="458.0">
+      <ListView fx:id="dataList" layoutX="31.0" layoutY="71.0" onMouseClicked="#getData" prefHeight="297.0" prefWidth="535.0">
          <padding>
             <Insets top="20.0" />
          </padding>
       </ListView>
+      <TextField layoutX="31.0" layoutY="37.0" />
+      <Button layoutX="188.0" layoutY="37.0" mnemonicParsing="false" text="Search" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="444.0" layoutY="37.0" mnemonicParsing="false" text="+ Add" />
+      <Button layoutX="499.0" layoutY="37.0" mnemonicParsing="false" text="- Remove" />
    </children>
 </AnchorPane>

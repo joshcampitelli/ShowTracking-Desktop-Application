@@ -1,4 +1,4 @@
-package Authentication;
+package DataOperations;
 public class DataValidation {
     public static boolean validUser(String input) {
         if (input.length() < 8) {

@@ -1,4 +1,4 @@
-package Authentication;
+package Core;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

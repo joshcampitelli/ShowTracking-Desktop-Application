@@ -1,7 +1,7 @@
-package Authentication;
+package DataOperations;
 import java.security.MessageDigest;
 
-public class Encryption {
+public class DataEncryption {
     public static String MD5(String md5) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

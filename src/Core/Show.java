@@ -6,6 +6,7 @@ public class Show {
     private String name;
     private String genre;
     private int rating;
+    private int ID;
 
     public Show(String show, int season, int episode) {
         this.name = show;
@@ -52,5 +53,13 @@ public class Show {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }
