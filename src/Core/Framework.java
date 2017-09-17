@@ -49,6 +49,14 @@ public class Framework {
         }
     }
 
+    public void addNewShow(int userID, int showID, int season, int episode) {
+        try {
+            showQueries.addNewShow(userID, showID, season, episode);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String getAllShows() {
         ArrayList<Show> list = null;
         StringBuffer sb = new StringBuffer();

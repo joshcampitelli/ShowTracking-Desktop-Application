@@ -9,6 +9,14 @@ public class ShowQueries {
     private String databaseUserName = "admin";
     private String databasePassWord = "password";
 
+    /**
+     * This class will contain methods such as addNewShow, alterShowName, alterShowImage, addShowImage, only\
+     * queries relating to the table: shows.
+     *
+     *
+     * Working Methods: getAvailableShows, addNewShow
+     */
+
     public ArrayList<Show> getAvailableShows() throws SQLException {
         ArrayList<Show> showList = new ArrayList<>();
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
@@ -25,39 +33,26 @@ public class ShowQueries {
         return showList;
     }
 
-    //TODO: ====================== NEED UPDATE TO NEW FORMAT =========================
-    //TODO: Throw not Try!
-    /*
-     * This class will contain methods such as addNewShow, alterShowName, alterShowImage, addShowImage, only\
-     * queries relating to the table: shows.
-     */
-    /**
-     * This method assumes the Data being given is in the correct format, and valid although will
-     * catch duplicate user names.
-     */
-    public void addShow(String showName, int season, int episode, String username) {
-        try {
-            // 1. Get connection to database
-            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+    public void addNewShow(int userID, int showID, int season, int episode) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
-            String sql = "INSERT INTO " + username + "shows"
-                    + " (name, season, episode)"
-                    + " VALUES (?, ?, ?)";
+        String sql = "INSERT INTO show_log"
+                + " (user_ID, show_ID, season, episode)"
+                + " VALUES (?, ?, ?, ?)";
 
-            PreparedStatement statement = myConn.prepareStatement(sql);
-            statement.setString(1, showName);
-            statement.setInt(2, season);
-            statement.setInt(3, episode);
-            statement.executeUpdate();
-            myConn.close();
-            System.out.println("[Important] Successfully Added Show!");
-        } catch (SQLException e) {
-            //SQL Exception
-            e.printStackTrace();
-        }
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setInt(1,userID);
+        statement.setInt(2,showID);
+        statement.setInt(3,season);
+        statement.setInt(4,episode);
+        statement.executeUpdate();
+
+        myConn.close();
+        System.out.println("[Important] Successfully Added Show!");
     }
 
-
+    //TODO: ====================== NEED UPDATE TO NEW FORMAT =========================
+    //TODO: Throw not Try!
     /**
      * The alter season method Queries the MySQL database to update the current season which is
      * being tracked by the user. The String username field is the username of the current user,

@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import Core.Framework;
+import Core.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +12,8 @@ import java.util.ResourceBundle;
 
 public class LoginController extends Controller implements Initializable {
     private Framework framework = new Framework();
-
+    private User user;
+    
     @FXML
     public TextField usernameField;
     public TextField passwordField;
@@ -22,9 +24,9 @@ public class LoginController extends Controller implements Initializable {
     public Button signupbtn;
 
     public void startLogin(ActionEvent event) {
-        //TODO: Handle cases with user input
         boolean login = framework.login(usernameField.getText(), passwordField.getText());
         if (login) {
+            user = new User(usernameField.getText());
             closeStage(loginbtn);
             createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
         }

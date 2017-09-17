@@ -1,11 +1,10 @@
 package UI.Controllers;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -13,9 +12,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
-    public ListView dataList;
-
     int loginHeight = 275;
     int loginWidth = 300;
     int signupHeight = loginHeight;
@@ -26,11 +22,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 
-    public void getData(ActionEvent event) {
-        //dataList.getItems().add(new CustomCell());
-        dataList.getItems().add("SHOW NAME");
-    }
-    
     protected void closeStage(Button button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();

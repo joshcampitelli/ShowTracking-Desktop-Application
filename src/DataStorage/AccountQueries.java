@@ -9,6 +9,10 @@ public class AccountQueries {
     private static String databasePassWord = "password";
     private static String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
 
+    /**
+     * Working Methods: login, addAccount, & usernameExists
+     */
+
     public static Boolean login(String username, String password) {
         String encodedPassword = DataEncryption.MD5(password);
 
@@ -21,12 +25,15 @@ public class AccountQueries {
 
             ResultSet rs = stmt.executeQuery(sql);
             // Check Username and Password
+            String usernameStored = "";
+            String passwordStored = "";
+
             while (rs.next()) {
-                databaseUserName = rs.getString("username");
-                databasePassWord = rs.getString("password");
+                usernameStored = rs.getString("username");
+                passwordStored = rs.getString("password");
             }
 
-            if (databaseUserName.equals(username) && databasePassWord.equals(encodedPassword)) {
+            if (usernameStored.equals(username) && passwordStored.equals(encodedPassword)) {
                 myConn.close();
                 System.out.println("[Important] Successfully Logged in!");
                 return true;
@@ -96,5 +103,17 @@ public class AccountQueries {
         statement.close();
         rs.close();
         return false;
+    }
+
+    public int getUserID(String username) throws SQLException {
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        String query = "SELECT ID FROM user_accounts where username = ?";
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        statement = myConn.prepareStatement(query);
+        statement.setString(1, username);
+        rs = statement.executeQuery();
+        rs.next();
+        return rs.getInt("ID");
     }
 }
