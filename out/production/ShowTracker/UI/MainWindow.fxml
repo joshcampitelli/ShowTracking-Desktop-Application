@@ -9,7 +9,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Controller">
    <children>
       <ListView fx:id="dataList" layoutX="31.0" layoutY="71.0" onMouseClicked="#getData" prefHeight="297.0" prefWidth="535.0">
          <padding>

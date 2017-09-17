@@ -9,7 +9,24 @@ public class ShowQueries {
     private String databaseUserName = "admin";
     private String databasePassWord = "password";
 
+    public ArrayList<Show> getAvailableShows() throws SQLException {
+        ArrayList<Show> showList = new ArrayList<>();
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT * FROM shows";
+
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            showList.add(new Show(rs.getString("name"), rs.getString("image_url"), rs.getInt("ID")));
+        }
+
+        myConn.close();
+        return showList;
+    }
+
     //TODO: ====================== NEED UPDATE TO NEW FORMAT =========================
+    //TODO: Throw not Try!
     /*
      * This class will contain methods such as addNewShow, alterShowName, alterShowImage, addShowImage, only\
      * queries relating to the table: shows.
@@ -103,24 +120,5 @@ public class ShowQueries {
             e.printStackTrace();
         }
         return false;
-    }
-
-    public ArrayList<Show> getAllShows(String username) {
-        ArrayList<Show> showList = new ArrayList<>();
-        try {
-            Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-            String sql = "Select * From " + username + "shows";
-            PreparedStatement ps = myConn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                showList.add(new Show(rs.getString("name"), rs.getInt("season"), rs.getInt("episode")));
-            }
-            myConn.close();
-        } catch (SQLException e) {
-            //SQL Exception
-            e.printStackTrace();
-        }
-
-        return showList;
     }
 }

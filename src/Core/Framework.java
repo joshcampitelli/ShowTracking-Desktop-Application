@@ -19,33 +19,6 @@ public class Framework {
     private AccountQueries accountQueries = new AccountQueries();
     private String username;
 
-    private String getInput(String message) {
-        Scanner input = new Scanner(System.in);
-        System.out.print(message + ": ");
-        return input.nextLine();
-    }
-
-    private int getInt(String message) {
-        try {
-            return Integer.parseInt(getInput(message));
-        } catch (NumberFormatException e) {
-            System.out.println("[Important] Incorrect Input!");
-            return getInt(message);
-        }
-    }
-
-    private String getString(ArrayList<Show> list) {
-        StringBuffer string = new StringBuffer();
-        if (list.isEmpty())
-            return "There are no shows currently being tracked. \n";
-
-        string.append("Stored in DataBase: \n");
-        for(Show show : list) {
-            string.append(show.getName() + "- Season: " + show.getSeason() + ", Episode: " + show.getEpisode() + "\n");
-        }
-        return string.toString();
-    }
-
     public boolean login(String username, String password) {
         if (!DataValidation.validUser(username) || !DataValidation.validPass(password)) {
             return false;
@@ -74,5 +47,24 @@ public class Framework {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getAllShows() {
+        ArrayList<Show> list = null;
+        StringBuffer sb = new StringBuffer();
+        try {
+            list = showQueries.getAvailableShows();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (list != null) {
+            for (Show show : list) {
+                sb.append("Name: " + show.getName() + "\n");
+            }
+        } else {
+            sb.append("No Shows Are Available.");
+        }
+        return sb.toString();
     }
 }

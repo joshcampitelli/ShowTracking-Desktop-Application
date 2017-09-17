@@ -7,6 +7,7 @@ public class Show {
     private String genre;
     private int rating;
     private int ID;
+    private String image;
 
     public Show(String show, int season, int episode) {
         this.name = show;
@@ -19,6 +20,12 @@ public class Show {
         this.genre = genre;
         this.season = season;
         this.episode = episode;
+    }
+
+    public Show(String name, String image, int ID) {
+        this.name = name;
+        this.image = image;
+        this.ID = ID;
     }
 
     public int getSeason() {
@@ -61,5 +68,13 @@ public class Show {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
