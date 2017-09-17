@@ -25,7 +25,7 @@ public class MainController extends Controller implements Initializable {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
 
-        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(dataList, list);
+        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
         dataList.setItems(observableList);
     }

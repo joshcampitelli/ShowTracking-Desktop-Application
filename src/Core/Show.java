@@ -1,5 +1,9 @@
 package Core;
 
+import UI.SearchWindowList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 public class Show {
@@ -10,6 +14,9 @@ public class Show {
     private int rating;
     private int ID;
     private String image;
+
+    //Includes reference to the show's Button on the UI
+    Button addButton = new Button();
 
     public Show(String show, int season, int episode) {
         this.name = show;
@@ -30,42 +37,8 @@ public class Show {
         this.ID = ID;
     }
 
-    public Image getImage() {
-        return new Image("https://upload.wikimedia.org/wikipedia/commons/f/f1/Ruby_logo_64x64.png");
-    }
-
-    public int getSeason() {
-        return season;
-    }
-
-    public int getEpisode() {
-        return episode;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setEpisode(int episode) {
-        this.episode = episode;
-    }
-
-    public void setSeason(int season) {
-        this.season = season;
-    }
-
-    public void setGenre(String genre) {this.genre = genre;}
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 
     public int getID() {
@@ -76,7 +49,20 @@ public class Show {
         this.ID = ID;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public Button getAddButton() {
+        return addButton;
     }
+
+    public void setAddButton(Button addButton) {
+        this.addButton = addButton;
+        addButton.setOnAction(buttonHandler);
+    }
+
+    private EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            System.out.println(name);
+            event.consume();
+        }
+    };
 }

@@ -33,7 +33,7 @@ public class SearchController extends Controller implements Initializable {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
 
-        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(showList, list);
+        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
         showList.setItems(observableList);
     }
