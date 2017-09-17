@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,7 +32,7 @@ public class Controller implements Initializable {
             //Create new stage for the new window
             Stage primaryStage = new Stage();
 
-            File file = new File("src/UI/" + fxmlClass + ".fxml");
+            File file = new File("src/UI/FXML/" + fxmlClass + ".fxml");
             URL url = file.toURI().toURL();
             Parent root = FXMLLoader.load(url);
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -33,7 +32,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="444.0" layoutY="37.0" mnemonicParsing="false" onAction="#getData" text="+ Add" />
-      <Button layoutX="499.0" layoutY="37.0" mnemonicParsing="false" text="- Remove" />
+      <Button layoutX="408.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="25.0" prefWidth="158.0" text="Find New Shows" />
    </children>
 </AnchorPane>

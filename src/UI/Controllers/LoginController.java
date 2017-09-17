@@ -7,13 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController extends Controller implements Initializable {
     private Framework framework = new Framework();
     private User user;
 
+    //TODO: Each controller should know its own FXML classes height and width
     @FXML
     public TextField usernameField;
     public TextField passwordField;

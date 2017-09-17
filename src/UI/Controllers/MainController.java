@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -26,9 +25,12 @@ public class MainController extends Controller implements Initializable {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
 
-        //ListViewDemo listViewDemo = new ListViewDemo();
         ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(dataList, list);
 
         dataList.setItems(observableList);
+    }
+
+    public void startSearch(ActionEvent event) {
+        createStage("SearchWindow", "Show Search", 240, 400);
     }
 }
