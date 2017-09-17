@@ -34,6 +34,4 @@ public class SignUpController extends Controller implements Initializable {
         closeStage(createAccountbtn);
         createStage("LoginWindow", "Login Window", loginWidth, loginHeight);
     }
-
-    public void initialize(URL location, ResourceBundle resources) {}
 }

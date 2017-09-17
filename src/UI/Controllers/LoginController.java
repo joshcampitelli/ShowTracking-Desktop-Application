@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class LoginController extends Controller implements Initializable {
     private Framework framework = new Framework();
     private User user;
-    
+
     @FXML
     public TextField usernameField;
     public TextField passwordField;
@@ -36,6 +36,4 @@ public class LoginController extends Controller implements Initializable {
         closeStage(signupbtn);
         createStage("SignUpWindow", "SignUp Window", signupWidth, signupHeight);
     }
-
-    public void initialize(URL location, ResourceBundle resources) {}
 }

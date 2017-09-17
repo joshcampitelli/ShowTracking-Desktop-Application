@@ -1,5 +1,7 @@
 package Core;
 
+import javafx.scene.image.Image;
+
 public class Show {
     private int season;
     private int episode;
@@ -26,6 +28,10 @@ public class Show {
         this.name = name;
         this.image = image;
         this.ID = ID;
+    }
+
+    public Image getImage() {
+        return new Image("https://upload.wikimedia.org/wikipedia/commons/f/f1/Ruby_logo_64x64.png");
     }
 
     public int getSeason() {
@@ -68,10 +74,6 @@ public class Show {
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    public String getImage() {
-        return image;
     }
 
     public void setImage(String image) {
