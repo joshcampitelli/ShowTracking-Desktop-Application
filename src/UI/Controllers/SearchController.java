@@ -12,10 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {}
     public static final ObservableList names = FXCollections.observableArrayList();
     private SearchWindowList searchWindowList = new SearchWindowList();
     private ShowQueries showQueries = new ShowQueries();
@@ -35,6 +39,11 @@ public class SearchController extends Controller implements Initializable {
         try {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
+        for (Show show : list) {
+            if (getCurrentUser().getAllShows().contains(show)) {
+                list.remove(show);
+            }
+        }
 
         ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
@@ -46,7 +55,7 @@ public class SearchController extends Controller implements Initializable {
         if (list != null) {
             for (Show show : list) {
                 if (show.getCheckBox().isSelected()) {
-                    System.out.println(show.getName());
+                    getCurrentUser().addShow(show);
                 }
             }
         }

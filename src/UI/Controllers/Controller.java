@@ -11,7 +11,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller {
     //TODO: size variables should be final
     int loginHeight = 275;
     int loginWidth = 300;
@@ -22,10 +22,16 @@ public class Controller implements Initializable {
     int searchHeight = 430;
     int searchWidth = 240;
 
-    protected User user;
+    //static so when modified in one subclass, changes for all
+    private static User currentUser;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public void setCurrentUser(String username) {
+        currentUser = new User(username);
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 
     protected void closeStage(Button button) {
         // get a handle to the stage

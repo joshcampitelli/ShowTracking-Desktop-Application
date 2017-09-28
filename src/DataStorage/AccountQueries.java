@@ -52,7 +52,7 @@ public class AccountQueries {
 
     /**
      * This method assumes the Data being given is in the correct format, and valid although will
-     * catch duplicate user names.
+     * catch duplicate currentUser names.
      */
     public void addAccount(String firstName, String lastName, String username, String password) throws SQLException {
         String encodedPass = DataEncryption.MD5(password);
@@ -120,7 +120,7 @@ public class AccountQueries {
 
     public String getFirstName(int userID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-        String sql = "SELECT firstname FROM user_accounts WHERE user_ID = " + userID;
+        String sql = "SELECT firstname FROM user_accounts WHERE ID = " + userID;
         PreparedStatement ps = myConn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         rs.next();
@@ -129,7 +129,7 @@ public class AccountQueries {
 
     public String getLastName(int userID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-        String sql = "SELECT lastname FROM user_accounts WHERE user_ID = " + userID;
+        String sql = "SELECT lastname FROM user_accounts WHERE ID = " + userID;
         PreparedStatement ps = myConn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         rs.next();

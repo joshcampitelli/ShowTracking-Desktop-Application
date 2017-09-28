@@ -55,7 +55,7 @@ public class ShowQueries {
     //TODO: Throw not Try!
     /**
      * The alter season method Queries the MySQL database to update the current season which is
-     * being tracked by the user. The String username field is the username of the current user,
+     * being tracked by the currentUser. The String username field is the username of the current currentUser,
      * String show is the show which is to be updated, and int season is the updated season number.
      */
     public void alterSeason(String username, String show, int season) {
@@ -79,7 +79,7 @@ public class ShowQueries {
 
     /**
      * The alter season method Queries the MySQL database to update the current season which is
-     * being tracked by the user. The String username field is the username of the current user,
+     * being tracked by the currentUser. The String username field is the username of the current currentUser,
      * String show is the show which is to be updated, and int season is the updated season number.
      */
     public void alterEpisode(String username, String show, int episode) {

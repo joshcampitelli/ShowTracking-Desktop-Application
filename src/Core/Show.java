@@ -16,7 +16,7 @@ public class Show {
     private String image;
 
     //Includes reference to the show's Button on the UI
-    private CheckBox select; //for adding the show to user directory
+    private CheckBox select; //for adding the show to currentUser directory
 
     public Show(String show, int season, int episode) {
         this.name = show;
@@ -56,15 +56,4 @@ public class Show {
     public void setCheckBox(CheckBox select) {
         this.select = select;
     }
-/*
-    private EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            addButton.setDisable(true);
-            System.out.println(name);
-            SearchController searchController = new SearchController();
-            searchController.addShowToList(new Show(name, season, episode));
-            event.consume();
-        }
-    };*/
 }
