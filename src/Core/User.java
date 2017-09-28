@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Class represents a user of the program, once logged in stores info about user, some loaded from database.
+ * Class represents a currentUser of the program, once logged in stores info about currentUser, some loaded from database.
  */
 public class User {
     private AccountQueries accountQueries;
@@ -19,7 +19,7 @@ public class User {
     private String lastName;
     private int userID;
 
-    //Upon Login the user is instantiated, all database info is then pulled locally
+    //Upon Login the currentUser is instantiated, all database info is then pulled locally
     public User(String username) {
         accountQueries = new AccountQueries();
         userDataQueries = new UserDataQueries();
@@ -41,19 +41,23 @@ public class User {
         }
     }
 
+    public void addShow(Show show) {
+        loggedShows.add(show);
+    }
+
     public int getUserID() {
         return userID;
     }
 
-    private String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    private String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    private ArrayList<Show> getAllShows() {
+    public ArrayList<Show> getAllShows() {
         return loggedShows;
     }
 }

@@ -8,7 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class LoginController extends Controller implements Initializable {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {}
     private Framework framework = new Framework();
 
     @FXML
@@ -22,7 +27,7 @@ public class LoginController extends Controller implements Initializable {
     public void startLogin(ActionEvent event) {
         boolean login = framework.login(usernameField.getText(), passwordField.getText());
         if (login) {
-            user = new User(usernameField.getText());
+            setCurrentUser(usernameField.getText());
             closeStage(loginbtn);
             createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
         }
