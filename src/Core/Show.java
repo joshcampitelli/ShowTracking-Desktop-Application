@@ -16,7 +16,7 @@ public class Show {
     private String image;
 
     //Includes reference to the show's Button on the UI
-    CheckBox select = new CheckBox(); //for adding the show to user directory
+    private CheckBox select; //for adding the show to user directory
 
     public Show(String show, int season, int episode) {
         this.name = show;

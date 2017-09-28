@@ -55,17 +55,4 @@ public class UserDataQueries {
         myConn.close();
         return show;
     }
-
-    public static void main(String[] args) {
-        UserDataQueries userDataQueries = new UserDataQueries();
-        ArrayList<Show> list;
-        try {
-            list = userDataQueries.getLoggedShows(1);
-            for (Show show : list) {
-                System.out.println(show.getName());
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
