@@ -22,12 +22,7 @@ public class MainController extends Controller implements Initializable {
     private ShowQueries showQueries = new ShowQueries();
 
     public void getData(ActionEvent event) {
-        ArrayList<Show> list = new ArrayList<>();
-
-        try {
-            list = showQueries.getAvailableShows();
-        } catch (SQLException e) {}
-
+        ArrayList<Show> list = getCurrentUser().getAllShows();
         ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
         dataList.setItems(observableList);

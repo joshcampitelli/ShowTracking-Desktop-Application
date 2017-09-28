@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane onMouseClicked="#getData" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
+<AnchorPane onMouseClicked="#getData" prefHeight="410.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
    <children>
       <ListView fx:id="dataList" layoutX="31.0" layoutY="71.0" prefHeight="297.0" prefWidth="535.0">
          <padding>
@@ -33,5 +34,6 @@
         </menus>
       </MenuBar>
       <Button layoutX="408.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="25.0" prefWidth="158.0" text="Find New Shows" />
+      <Button fx:id="update" layoutX="245.0" layoutY="368.0" mnemonicParsing="false" onAction="#getData" prefHeight="34.0" prefWidth="111.0" text="Update" />
    </children>
 </AnchorPane>

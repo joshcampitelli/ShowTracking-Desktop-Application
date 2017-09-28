@@ -48,31 +48,4 @@ public class Framework {
             e.printStackTrace();
         }
     }
-
-    public void addNewShow(int userID, int showID, int season, int episode) {
-        try {
-            showQueries.addNewShow(userID, showID, season, episode);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getAllShows() {
-        ArrayList<Show> list = null;
-        StringBuffer sb = new StringBuffer();
-        try {
-            list = showQueries.getAvailableShows();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        if (list != null) {
-            for (Show show : list) {
-                sb.append("Name: " + show.getName() + "\n");
-            }
-        } else {
-            sb.append("No Shows Are Available.");
-        }
-        return sb.toString();
-    }
 }

@@ -2,14 +2,12 @@ package UI.Controllers;
 
 import Core.User;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Controller {
     //TODO: size variables should be final
@@ -33,7 +31,7 @@ public class Controller {
         return currentUser;
     }
 
-    protected void closeStage(Button button) {
+    protected void closeStage(ButtonBase button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
