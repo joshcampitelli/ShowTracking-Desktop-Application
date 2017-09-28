@@ -1,6 +1,7 @@
 package Core;
 
 import DataStorage.AccountQueries;
+import DataStorage.ShowQueries;
 import DataStorage.UserDataQueries;
 
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 public class User {
     private AccountQueries accountQueries;
     private UserDataQueries userDataQueries;
+    private ShowQueries showQueries;
     private ArrayList<Show> loggedShows;
 
     private String username;
@@ -23,6 +25,7 @@ public class User {
     public User(String username) {
         accountQueries = new AccountQueries();
         userDataQueries = new UserDataQueries();
+        showQueries = new ShowQueries();
         this.username = username;
         initialize();
     }
@@ -43,6 +46,11 @@ public class User {
 
     public void addShow(Show show) {
         loggedShows.add(show);
+        try {
+            showQueries.addNewShow(userID, show.getID());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getUserID() {

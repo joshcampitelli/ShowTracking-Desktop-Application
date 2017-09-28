@@ -33,7 +33,13 @@ public class ShowQueries {
         return showList;
     }
 
-    public void addNewShow(int userID, int showID, int season, int episode) throws SQLException {
+    /**
+     * Automatically sets the episode and season to 1 and 1, which will then be modified by user.
+     * @param userID
+     * @param showID
+     * @throws SQLException
+     */
+    public void addNewShow(int userID, int showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "INSERT INTO show_log"
@@ -43,8 +49,8 @@ public class ShowQueries {
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setInt(1,userID);
         statement.setInt(2,showID);
-        statement.setInt(3,season);
-        statement.setInt(4,episode);
+        statement.setInt(3,1);
+        statement.setInt(4,1);
         statement.executeUpdate();
 
         myConn.close();

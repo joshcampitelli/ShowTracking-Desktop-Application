@@ -15,33 +15,42 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
-    public static final ObservableList names = FXCollections.observableArrayList();
+
     private SearchWindowList searchWindowList = new SearchWindowList();
     private ShowQueries showQueries = new ShowQueries();
-    private ArrayList<Show> showsToAdd = new ArrayList<>();
 
     @FXML
     public ListView<SearchWindowList.HBoxCell> showList;
     public Button searchBtn;
     public Button refreshListBtn;
+    public Button addShowsBtn;
+    public Button cancelBtn;
     public TextField searchField;
 
     private ArrayList<Show> list;
 
     public void getData(ActionEvent event) {
         list = new ArrayList<>();
-
         try {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
-        for (Show show : list) {
-            if (getCurrentUser().getAllShows().contains(show)) {
-                list.remove(show);
+
+        for (Show show : getCurrentUser().getAllShows()) {
+            System.out.println(show.getName());
+        }
+
+        //Error here: Need alternate method to remove already tracked shows from search.
+        for (Show userShow : getCurrentUser().getAllShows()) {
+            for (Show selectedShow : list) {
+                if (selectedShow.getID() == userShow.getID()) {
+                    list.remove(selectedShow);
+                }
             }
         }
 
@@ -51,21 +60,25 @@ public class SearchController extends Controller implements Initializable {
         event.consume();
     }
 
-    public void printSelectedShows(ActionEvent event) {
-        if (list != null) {
-            for (Show show : list) {
-                if (show.getCheckBox().isSelected()) {
-                    getCurrentUser().addShow(show);
-                }
+    public void addSelectedShows(ActionEvent event) {
+        boolean addShow = false;
+
+        for (Show show : list) {
+            if (show.getCheckBox().isSelected()) {
+                getCurrentUser().addShow(show);
+                addShow = true;
             }
+        }
+
+        if (addShow) {
+            //Only close stage if user has selected a show.
+            closeStage(addShowsBtn);
+            event.consume();
         }
     }
 
-    public void addShowToList(Show show) {
-        showsToAdd.add(show);
-    }
-
-    public ArrayList<Show> getShowsToAdd() {
-        return showsToAdd;
+    public void closeWindow(ActionEvent event) {
+        closeStage(cancelBtn);
+        event.consume();
     }
 }
