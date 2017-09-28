@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import Core.Show;
+import Core.User;
 import DataStorage.ShowQueries;
 import UI.SearchWindowList;
 import javafx.collections.FXCollections;
@@ -25,12 +26,12 @@ public class MainController extends Controller implements Initializable {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
 
-        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(dataList, list);
+        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
         dataList.setItems(observableList);
     }
 
     public void startSearch(ActionEvent event) {
-        createStage("SearchWindow", "Show Search", 240, 400);
+        createStage("SearchWindow", "Show Search", searchWidth, searchHeight);
     }
 }

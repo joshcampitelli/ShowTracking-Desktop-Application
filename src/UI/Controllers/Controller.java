@@ -17,6 +17,8 @@ public class Controller implements Initializable {
     int signupWidth = loginWidth;
     int mainHeight = 400;
     int mainWidth = 600;
+    int searchHeight = 430;
+    int searchWidth = 240;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
