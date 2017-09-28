@@ -11,6 +11,7 @@ public class AccountQueries {
 
     /**
      * Working Methods: login, addAccount, & usernameExists
+     * Operates on the user_accounts database
      */
 
     public static Boolean login(String username, String password) {
@@ -116,4 +117,23 @@ public class AccountQueries {
         rs.next();
         return rs.getInt("ID");
     }
+
+    public String getFirstName(int userID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT firstname FROM user_accounts WHERE user_ID = " + userID;
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return rs.getString("firstname");
+    }
+
+    public String getLastName(int userID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT lastname FROM user_accounts WHERE user_ID = " + userID;
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return rs.getString("lastname");
+    }
+
 }
