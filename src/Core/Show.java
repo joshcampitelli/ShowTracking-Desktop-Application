@@ -1,10 +1,10 @@
 package Core;
 
-import UI.SearchWindowList;
+import UI.Controllers.SearchController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+import javafx.scene.control.CheckBox;
 
 public class Show {
     private int season;
@@ -16,7 +16,7 @@ public class Show {
     private String image;
 
     //Includes reference to the show's Button on the UI
-    Button addButton = new Button();
+    CheckBox select = new CheckBox(); //for adding the show to user directory
 
     public Show(String show, int season, int episode) {
         this.name = show;
@@ -49,20 +49,22 @@ public class Show {
         this.ID = ID;
     }
 
-    public Button getAddButton() {
-        return addButton;
+    public CheckBox getCheckBox() {
+        return select;
     }
 
-    public void setAddButton(Button addButton) {
-        this.addButton = addButton;
-        addButton.setOnAction(buttonHandler);
+    public void setCheckBox(CheckBox select) {
+        this.select = select;
     }
-
+/*
     private EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
+            addButton.setDisable(true);
             System.out.println(name);
+            SearchController searchController = new SearchController();
+            searchController.addShowToList(new Show(name, season, episode));
             event.consume();
         }
-    };
+    };*/
 }
