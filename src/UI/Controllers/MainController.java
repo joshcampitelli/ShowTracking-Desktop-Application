@@ -1,7 +1,6 @@
 package UI.Controllers;
 
 import Core.Show;
-import Core.User;
 import DataStorage.ShowQueries;
 import UI.SearchWindowList;
 import javafx.collections.FXCollections;

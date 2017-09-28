@@ -14,9 +14,7 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-//todo: button references should be here not in show class, the reference to shows added is easier
-//todo: everyshow just has a variable "selected" the once user clicks "save" or "return" button it checks
-//todo: the list of shows for which have been selected, checkbox or radio button may be better
+
 public class SearchController extends Controller implements Initializable {
     public static final ObservableList names = FXCollections.observableArrayList();
     private SearchWindowList searchWindowList = new SearchWindowList();

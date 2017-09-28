@@ -1,5 +1,6 @@
 package UI.Controllers;
 
+import Core.User;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    //TODO: size variables should be final
     int loginHeight = 275;
     int loginWidth = 300;
     int signupHeight = loginHeight;
@@ -19,6 +21,8 @@ public class Controller implements Initializable {
     int mainWidth = 600;
     int searchHeight = 430;
     int searchWidth = 240;
+
+    protected User user;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {}

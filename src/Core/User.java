@@ -13,18 +13,18 @@ public class User {
     private String firstName;
     private String lastName;
     private int userID;
+
     private ArrayList<Show> loggedShows;
+
     AccountQueries accountQueries = new AccountQueries();
 
-    public User(String username, String firstName, String lastName) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    //In the case of logging in, still need to verify the user
+    //Upon Login the user is instantiated, all database info is then pulled locally
     public User(String username) {
         this.username = username;
+        this.userID = getUserID();
+        this.firstName = getFirstName();
+        this.lastName = getLastName();
+        this.loggedShows = getAllShows();
     }
 
     //get the id from the database
@@ -35,5 +35,17 @@ public class User {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    private String getFirstName() {
+        return "";
+    }
+
+    private String getLastName() {
+        return "";
+    }
+
+    private ArrayList<Show> getAllShows() {
+        return null;
     }
 }

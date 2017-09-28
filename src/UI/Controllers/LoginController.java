@@ -10,9 +10,7 @@ import javafx.scene.control.TextField;
 
 public class LoginController extends Controller implements Initializable {
     private Framework framework = new Framework();
-    private User currentUser;
 
-    //TODO: Each controller should know its own FXML classes height and width
     @FXML
     public TextField usernameField;
     public TextField passwordField;
@@ -24,7 +22,7 @@ public class LoginController extends Controller implements Initializable {
     public void startLogin(ActionEvent event) {
         boolean login = framework.login(usernameField.getText(), passwordField.getText());
         if (login) {
-            currentUser = new User(usernameField.getText());
+            user = new User(usernameField.getText());
             closeStage(loginbtn);
             createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
         }
@@ -33,10 +31,5 @@ public class LoginController extends Controller implements Initializable {
     public void startSignup(ActionEvent event) {
         closeStage(signupbtn);
         createStage("SignUpWindow", "SignUp Window", signupWidth, signupHeight);
-    }
-
-    //returns the current user of the program, for the main window
-    public User getCurrentUser() {
-        return currentUser;
     }
 }
