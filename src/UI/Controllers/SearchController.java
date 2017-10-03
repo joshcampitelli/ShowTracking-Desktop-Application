@@ -2,7 +2,7 @@ package UI.Controllers;
 
 import Core.Show;
 import DataStorage.ShowQueries;
-import UI.SearchWindowList;
+import UI.SearchLayout;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,11 +19,11 @@ public class SearchController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 
-    private SearchWindowList searchWindowList = new SearchWindowList();
+    private SearchLayout searchLayout = new SearchLayout();
     private ShowQueries showQueries = new ShowQueries();
 
     @FXML
-    public ListView<SearchWindowList.HBoxCell> showList;
+    public ListView<SearchLayout.HBoxCell> showList;
     public Button searchBtn;
     public Button refreshListBtn;
     public Button addShowsBtn;
@@ -39,7 +39,7 @@ public class SearchController extends Controller implements Initializable {
         } catch (SQLException e) {}
 
         //Todo: Remove already tracked shows from the search window before displaying.
-        ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
+        ObservableList<SearchLayout.HBoxCell> observableList = searchLayout.createContent(list);
 
         showList.setItems(observableList);
         event.consume();
