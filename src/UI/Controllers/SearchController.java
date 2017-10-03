@@ -3,7 +3,6 @@ package UI.Controllers;
 import Core.Show;
 import DataStorage.ShowQueries;
 import UI.SearchWindowList;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
@@ -41,19 +38,7 @@ public class SearchController extends Controller implements Initializable {
             list = showQueries.getAvailableShows();
         } catch (SQLException e) {}
 
-        for (Show show : getCurrentUser().getAllShows()) {
-            System.out.println(show.getName());
-        }
-
-        //Error here: Need alternate method to remove already tracked shows from search.
-        for (Show userShow : getCurrentUser().getAllShows()) {
-            for (Show selectedShow : list) {
-                if (selectedShow.getID() == userShow.getID()) {
-                    list.remove(selectedShow);
-                }
-            }
-        }
-
+        //Todo: Remove already tracked shows from the search window before displaying.
         ObservableList<SearchWindowList.HBoxCell> observableList = searchWindowList.createContent(list);
 
         showList.setItems(observableList);
