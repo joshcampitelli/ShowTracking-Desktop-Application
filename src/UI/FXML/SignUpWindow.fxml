@@ -24,7 +24,7 @@
                     <image>
                         <Image url="@../Data/login%20image.png" />
                     </image></ImageView>
-                <Button id="signupbtn" fx:id="createAccountbtn" layoutX="85.0" layoutY="252.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="132.0" text="Create Account" />
+                <Button id="signupbtn" fx:id="createAccountBtn" layoutX="85.0" layoutY="252.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="132.0" text="Create Account" />
                 <Text layoutX="56.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="190.00909423828125">
                     <font>
                         <Font size="32.0" />
@@ -40,8 +40,8 @@
                   <Image url="@../Data/login%20image.png" />
                </image>
             </ImageView>
-            <TextField fx:id="firstnameField" layoutX="85.0" layoutY="89.0" prefHeight="25.0" prefWidth="179.0" promptText="First Name" />
-            <TextField fx:id="lastnameField" layoutX="85.0" layoutY="125.0" prefHeight="25.0" prefWidth="179.0" promptText="Last Name" />
+            <TextField fx:id="firstNameField" layoutX="85.0" layoutY="89.0" prefHeight="25.0" prefWidth="179.0" promptText="First Name" />
+            <TextField fx:id="lastNameField" layoutX="85.0" layoutY="125.0" prefHeight="25.0" prefWidth="179.0" promptText="Last Name" />
             <TextField fx:id="usernameField" layoutX="85.0" layoutY="163.0" prefHeight="25.0" prefWidth="179.0" promptText="Username" />
             <PasswordField fx:id="passwordField" layoutX="85.0" layoutY="201.0" prefHeight="25.0" prefWidth="179.0" promptText="Password" />
             </children>

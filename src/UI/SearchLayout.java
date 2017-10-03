@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
-public class SearchWindowList {
+public class SearchLayout {
     public static class HBoxCell extends HBox {
         Label showName = new Label();
 
