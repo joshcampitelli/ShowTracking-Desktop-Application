@@ -18,11 +18,11 @@ public class MainLayout {
         Label showName = new Label();
         Label episode = new Label();
         Label season = new Label();
-        Button editBtn = new Button("Edit");
+        EditButton editBtn = new EditButton("Edit");
 
         HBoxCell(Show show) {
             super();
-            show.setEditBtn(editBtn);
+            editBtn.setShow(show);
             showName.setText(show.getName());
             season.setText(String.valueOf(show.getSeason()));
             episode.setText(String.valueOf(show.getEpisode()));
