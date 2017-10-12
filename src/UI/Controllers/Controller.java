@@ -13,11 +13,11 @@ public class Controller {
     //TODO: size variables should be final
     int loginHeight = 275;
     int loginWidth = 300;
-    int signupHeight = loginHeight;
-    int signupWidth = loginWidth;
+    int signUpHeight = loginHeight;
+    int signUpWidth = loginWidth;
     int mainHeight = 400;
     int mainWidth = 600;
-    int searchHeight = 430;
+    int searchHeight = 360;
     int searchWidth = 240;
 
     //static so when modified in one subclass, changes for all

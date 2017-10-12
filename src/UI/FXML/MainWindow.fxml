@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="410.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
+<AnchorPane prefHeight="383.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
    <children>
       <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" prefHeight="275.0" prefWidth="535.0">
          <padding>
@@ -13,7 +13,7 @@
          </padding>
       </ListView>
       <TextField layoutX="31.0" layoutY="37.0" />
-      <Button layoutX="188.0" layoutY="37.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="searchBtn" layoutX="188.0" layoutY="37.0" mnemonicParsing="false" text="Search" />
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -34,7 +34,6 @@
         </menus>
       </MenuBar>
       <Button layoutX="408.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="25.0" prefWidth="158.0" text="Find New Shows" />
-      <Button fx:id="update" layoutX="245.0" layoutY="368.0" mnemonicParsing="false" onAction="#getData" prefHeight="34.0" prefWidth="111.0" text="Update" />
       <Label layoutX="42.0" layoutY="72.0" text="Show Name" />
       <Label layoutX="425.0" layoutY="72.0" text="Episode" />
       <Label layoutX="356.0" layoutY="72.0" text="Season" />

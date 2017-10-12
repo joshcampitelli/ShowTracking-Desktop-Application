@@ -32,7 +32,7 @@ public class LoginController extends Controller implements Initializable {
 
     public void startSignUp(ActionEvent event) {
         closeStage(signUpBtn);
-        createStage("SignUpWindow", "SignUp Window", signupWidth, signupHeight);
+        createStage("SignUpWindow", "SignUp Window", signUpWidth, signUpHeight);
         event.consume();
     }
 

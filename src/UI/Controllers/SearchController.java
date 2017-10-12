@@ -17,22 +17,7 @@ import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
-
-    private SearchLayout searchLayout = new SearchLayout();
-    private ShowQueries showQueries = new ShowQueries();
-
-    @FXML
-    public ListView<SearchLayout.HBoxCell> showList;
-    public Button searchBtn;
-    public Button refreshListBtn;
-    public Button addShowsBtn;
-    public Button cancelBtn;
-    public TextField searchField;
-
-    private ArrayList<Show> list;
-
-    public void getData(ActionEvent event) {
+    public void initialize(URL location, ResourceBundle resources) {
         list = new ArrayList<>();
         try {
             list = showQueries.getAvailableShows();
@@ -42,8 +27,19 @@ public class SearchController extends Controller implements Initializable {
         ObservableList<SearchLayout.HBoxCell> observableList = searchLayout.createContent(list);
 
         showList.setItems(observableList);
-        event.consume();
     }
+
+    private SearchLayout searchLayout = new SearchLayout();
+    private ShowQueries showQueries = new ShowQueries();
+
+    @FXML
+    public ListView<SearchLayout.HBoxCell> showList;
+    public Button searchBtn;
+    public Button addShowsBtn;
+    public Button cancelBtn;
+    public TextField searchField;
+
+    private ArrayList<Show> list;
 
     public void addSelectedShows(ActionEvent event) {
         boolean addShow = false;
@@ -58,12 +54,14 @@ public class SearchController extends Controller implements Initializable {
         if (addShow) {
             //Only close stage if user has selected a show.
             closeStage(addShowsBtn);
+            createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
             event.consume();
         }
     }
 
     public void closeWindow(ActionEvent event) {
         closeStage(cancelBtn);
+        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
         event.consume();
     }
 }
