@@ -31,6 +31,7 @@ public class Controller {
         return currentUser;
     }
 
+    //Todo: use event to get handle to the window.
     protected void closeStage(ButtonBase button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();

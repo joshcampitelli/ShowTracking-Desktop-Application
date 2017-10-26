@@ -3,6 +3,7 @@ package Core;
 import DataStorage.AccountQueries;
 import DataStorage.ShowQueries;
 import DataStorage.UserDataQueries;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -48,6 +49,8 @@ public class User {
         loggedShows.add(show);
         try {
             showQueries.addNewShow(userID, show.getID());
+        } catch (MySQLIntegrityConstraintViolationException exception) {
+            System.out.println("[Duplicate Entry] Show Already being Tracked.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
