@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="194.0" prefWidth="237.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.EditController">
+   <children>
+      <Button fx:id="confirmBtn" layoutX="128.0" layoutY="149.0" mnemonicParsing="false" text="Confirm" />
+      <Button fx:id="cancelBtn" layoutX="41.0" layoutY="149.0" mnemonicParsing="false" text="Cancel" />
+      <Label layoutX="14.0" layoutY="14.0" text="Show Name:" />
+      <Label layoutX="43.0" layoutY="52.0" text="Episode:" />
+      <Label layoutX="46.0" layoutY="97.0" text="Season:" />
+      <Label fx:id="showName" layoutX="88.0" layoutY="14.0" />
+      <Button fx:id="epIncBtn" layoutX="190.0" layoutY="48.0" mnemonicParsing="false" text="+" />
+      <Label fx:id="episode" layoutX="143.0" layoutY="52.0" />
+      <Button fx:id="seIncBtn" layoutX="190.0" layoutY="95.0" mnemonicParsing="false" text="+" />
+      <Label fx:id="season" layoutX="143.0" layoutY="97.0" />
+      <Button fx:id="epDecBtn" layoutX="104.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Button fx:id="seDecBtn" layoutX="104.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+   </children>
+</AnchorPane>
