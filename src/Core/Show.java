@@ -3,29 +3,48 @@ package Core;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
+/**
+ * The class Show reperesents the shows being tracked by each user of the
+ * ShowTracker Program, the local variables in the class are the attributes
+ * of each show stored in the DB.
+ * Todo: Add Show Images to UI (URLs for each show)
+ */
 public class Show {
+    /*Show DataBase Columns (Ordered)*/
+    private int ID;
+    private String name;
+    private int year;
+    private String genre;
+    private int runtime;
+    private int seasons;
+    private int episodes;
+    private int rating;
+
+    /*User Database Columns (Ordered)*/
     private int season;
     private int episode;
-    private String name;
-    private String genre;
-    private int rating;
-    private int ID;
-    private String image;
+
+    /*UI Handles for controllers*/
+    private CheckBox select;
     private Button editBtn;
 
-    //Includes reference to the show's Button on the UI
-    private CheckBox select; //for adding the show to currentUser directory
-
-    public Show(String show, int season, int episode) {
-        this.name = show;
-        this.season = season;
-        this.episode = episode;
+    /*Used to construct a show without a user's info*/
+    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating) {
+        this.ID = ID;
+        this.name = name;
+        this.year = year;
+        this.genre = genre;
+        this.runtime = runtime;
+        this.seasons = seasons;
+        this.episodes = episodes;
+        this.rating = rating;
     }
 
-    public Show(String name, String image, int ID) {
-        this.name = name;
-        this.image = image;
-        this.ID = ID;
+    /*Used to construct a show with user's info*/
+    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating, int season, int episode) {
+        Show(ID, name, year, genre, runtime, seasons, episodes, rating);
+        this.episode = episode;
+        this.season = season;
     }
 
     public String getName() {
