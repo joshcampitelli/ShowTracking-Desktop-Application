@@ -1,8 +1,19 @@
-Drivers/
+## Text Files ##
 ProjectLog.txt
-.idea/
-out/
-ListViewWithImages.java
-ListViewWithImages.class
-ListViewWithImages$1.class
 DataStoragePlan.txt
+
+## Directories ##
+out/
+Drivers/
+
+## Java Files ##
+ListViewWithImages.java
+
+## .idea Files ##
+.idea/workspace.xml
+.idea/kotlinc.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/workspace.xml
