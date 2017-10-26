@@ -42,7 +42,7 @@ public class Show {
 
     /*Used to construct a show with user's info*/
     public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating, int season, int episode) {
-        Show(ID, name, year, genre, runtime, seasons, episodes, rating);
+        this(ID, name, year, genre, runtime, seasons, episodes, rating);
         this.episode = episode;
         this.season = season;
     }

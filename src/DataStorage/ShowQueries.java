@@ -26,7 +26,7 @@ public class ShowQueries {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
-            showList.add(new Show(rs.getString("name"), rs.getString("image_url"), rs.getInt("ID")));
+            showList.add(new Show(rs.getInt("ID"), rs.getString("name"), rs.getInt("year"), rs.getString("genre"), rs.getInt("runtime"), rs.getInt("seasons"), rs.getInt("episodes"), rs.getInt("rating")));
         }
 
         myConn.close();

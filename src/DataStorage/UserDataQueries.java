@@ -49,7 +49,7 @@ public class UserDataQueries {
         ResultSet rs = ps.executeQuery();
 
         while(rs.next()) {
-            show = new Show(rs.getString("name"), rs.getString("image_url"), rs.getInt("ID"));
+            show = new Show(id, rs.getString("name"), rs.getInt("year"), rs.getString("genre"), rs.getInt("runtime"), rs.getInt("seasons"), rs.getInt("episodes"), rs.getInt("rating"));
         }
 
         myConn.close();
