@@ -10,6 +10,7 @@ Drivers/
 ListViewWithImages.java
 
 ## .idea Files ##
+.idea/
 .idea/workspace.xml
 .idea/kotlinc.xml
 .idea/misc.xml
