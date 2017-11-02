@@ -3,7 +3,7 @@ package Core;
 import DataStorage.AccountQueries;
 import DataStorage.ShowQueries;
 import DataStorage.UserDataQueries;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
