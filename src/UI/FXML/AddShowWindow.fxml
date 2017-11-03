@@ -29,6 +29,6 @@
       <Label layoutX="57.0" layoutY="276.0" text="Episodes" />
       <Label layoutX="57.0" layoutY="312.0" text="Rating" />
       <Button fx:id="cancelBtn" layoutX="64.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Cancel" />
-      <Button fx:id="addBtn" layoutX="158.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Add Show" />
+      <Button fx:id="addBtn" layoutX="158.0" layoutY="358.0" mnemonicParsing="false" onAction="#addShow" prefHeight="25.0" prefWidth="77.0" text="Add Show" />
    </children>
 </AnchorPane>
