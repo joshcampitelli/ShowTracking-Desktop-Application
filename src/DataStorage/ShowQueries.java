@@ -1,9 +1,12 @@
 package DataStorage;
 
 import Core.Show;
+
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
+//todo: when you construct a query class it should connect to DB!
 public class ShowQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
@@ -38,6 +41,7 @@ public class ShowQueries {
      * @param userID
      * @param showID
      * @throws SQLException
+     * todo: Should be in a user dataqueries class, each class should operate on an individual table in DB.
      */
     public void addNewShow(int userID, int showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
@@ -51,6 +55,26 @@ public class ShowQueries {
         statement.setInt(2,showID);
         statement.setInt(3,1);
         statement.setInt(4,1);
+        statement.executeUpdate();
+
+        myConn.close();
+        System.out.println("[Important] Successfully Added Show!");
+    }
+
+    public void addNewShow(String name, int year, String genre, int runtime, int seasons, int episodes, int rating) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+
+        String sql = "INSERT INTO shows"
+                + " (name, year, genre, runtime, seasons, episodes, rating) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setString(1, name);
+        statement.setInt(2, year);
+        statement.setString(3, genre);
+        statement.setInt(4, runtime);
+        statement.setInt(5, seasons);
+        statement.setInt(6, episodes);
+        statement.setInt(7, rating);
         statement.executeUpdate();
 
         myConn.close();
