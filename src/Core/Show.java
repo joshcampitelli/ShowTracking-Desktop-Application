@@ -1,10 +1,9 @@
 package Core;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
 /**
- * The class Show reperesents the shows being tracked by each user of the
+ * The class Show represents the shows being tracked by each user of the
  * ShowTracker Program, the local variables in the class are the attributes
  * of each show stored in the DB.
  * Todo: Add Show Images to UI (URLs for each show)
@@ -26,7 +25,6 @@ public class Show {
 
     /*UI Handles for controllers*/
     private CheckBox select;
-    private Button editBtn;
 
     /*Used to construct a show without a user's info*/
     public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating) {
@@ -71,23 +69,7 @@ public class Show {
         return season;
     }
 
-    public void setSeason(int season) {
-        this.season = season;
-    }
-
     public int getEpisode() {
         return episode;
-    }
-
-    public void setEpisode(int episode) {
-        this.episode = episode;
-    }
-
-    public void setEditBtn(Button editBtn) {
-        this.editBtn = editBtn;
-    }
-
-    public Button getEditBtn() {
-        return editBtn;
     }
 }

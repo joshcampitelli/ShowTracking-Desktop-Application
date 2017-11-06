@@ -10,7 +10,7 @@ public class EditButton extends Button {
 
     public EditButton(String text) {
         super(text);
-        editController = new EditController();
+        editController = new EditController(show);
         this.setOnAction(editController.buttonHandler);
     }
 

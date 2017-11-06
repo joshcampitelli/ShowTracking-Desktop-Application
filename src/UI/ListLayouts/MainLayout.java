@@ -1,8 +1,9 @@
-package UI;
+package UI.ListLayouts;
 
 import java.util.ArrayList;
 import java.util.List;
 import Core.Show;
+import UI.EditButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

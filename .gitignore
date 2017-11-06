@@ -1,14 +1,5 @@
-## Text Files ##
-ProjectLog.txt
-DataStoragePlan.txt
-
-## Directories ##
+##IntelliJ Files##
 out/
 Drivers/
-
-## Java Files ##
-ListViewWithImages.java
-
-## .idea Files ##
 .idea/
 

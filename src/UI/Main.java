@@ -15,7 +15,7 @@ public class Main extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("FXML/AddShowWindow.fxml"));
 
         primaryStage.setTitle("ShowTracker");
-        primaryStage.setScene(new Scene(root, 303, 410));
+        primaryStage.setScene(new Scene(root, 275, 300));
         primaryStage.show();
     }
 
