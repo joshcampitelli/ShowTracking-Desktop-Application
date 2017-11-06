@@ -1,8 +1,7 @@
-package DataStorage;
+package Queries;
 
 import Core.Show;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -42,6 +41,7 @@ public class ShowQueries {
      * @param showID
      * @throws SQLException
      * todo: Should be in a user dataqueries class, each class should operate on an individual table in DB.
+     * todo: rename to logNewShow for user, and fix occurrences
      */
     public void addNewShow(int userID, int showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);

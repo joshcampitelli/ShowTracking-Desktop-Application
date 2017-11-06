@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import DataStorage.ShowQueries;
+import Queries.ShowQueries;
 
 public class AddShowController extends Controller implements Initializable {
     @FXML
@@ -34,5 +34,12 @@ public class AddShowController extends Controller implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        nameFld.setText("");
+        yearFld.setText("");
+        genreFld.setText("");
+        runtimeFld.setText("");
+        seasonsFld.setText("");
+        episodesFld.setText("");
+        ratingFld.setText("");
     }
 }

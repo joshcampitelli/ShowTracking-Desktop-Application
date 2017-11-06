@@ -1,8 +1,8 @@
-package DataStorage;
+package Queries;
 
 import DataOperations.DataEncryption;
-
 import java.sql.*;
+
 public class AccountQueries {
 
     private static String databaseUserName = "admin";
@@ -10,10 +10,14 @@ public class AccountQueries {
     private static String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
 
     /**
-     * Working Methods: login, addAccount, & usernameExists
-     * Operates on the user_accounts database
+     * The login method takes a username & password as parameters, converts the password into it's
+     * MD5 encoded hash, then the username + hashed password pair is selected from the user_accounts
+     * table. If the combo exists returns true, else returns false.
+     * @param username a String value entered by the user
+     * @param password a String value entered by the user
+     * @return boolean
+     * todo: Throw SQLException instead of try/catch block
      */
-
     public static Boolean login(String username, String password) {
         String encodedPassword = DataEncryption.MD5(password);
 
@@ -33,14 +37,13 @@ public class AccountQueries {
                 usernameStored = rs.getString("username");
                 passwordStored = rs.getString("password");
             }
+            myConn.close();
 
             if (usernameStored.equals(username) && passwordStored.equals(encodedPassword)) {
-                myConn.close();
                 System.out.println("[Important] Successfully Logged in!");
                 return true;
             } else {
                 System.out.println("[Important] Incorrect username or password!");
-                myConn.close();
                 return false;
             }
         } catch (SQLException e) {
@@ -51,8 +54,13 @@ public class AccountQueries {
     }
 
     /**
-     * This method assumes the Data being given is in the correct format, and valid although will
-     * catch duplicate currentUser names.
+     * The addAccount method adds an account to the user_accounts table, this method assumes the
+     * Data being given is in the correct format, and valid although will catch duplicate usernames.
+     * @param firstName a String value entered by the user
+     * @param lastName a String value entered by the user
+     * @param username a String value entered by the user
+     * @param password a String value entered by the user
+     * @throws SQLException
      */
     public void addAccount(String firstName, String lastName, String username, String password) throws SQLException {
         String encodedPass = DataEncryption.MD5(password);
@@ -83,7 +91,13 @@ public class AccountQueries {
         System.out.println("[Important] Successfully Created Account!");
     }
 
-
+    /**
+     * The usernameExists methods takes a username and returns true or false based
+     * on whether or not the username is in the user_accounts table.
+     * @param username a String value entered by the user
+     * @return boolean
+     * @throws SQLException
+     */
     public boolean usernameExists(String username) throws SQLException {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -106,6 +120,7 @@ public class AccountQueries {
         return false;
     }
 
+    //Todo: UPDATE: the following methods need to be updated.
     public int getUserID(String username) throws SQLException {
         PreparedStatement statement = null;
         ResultSet rs = null;

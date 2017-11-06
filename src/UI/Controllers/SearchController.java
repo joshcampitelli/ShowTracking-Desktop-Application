@@ -1,8 +1,8 @@
 package UI.Controllers;
 
 import Core.Show;
-import DataStorage.ShowQueries;
-import UI.SearchLayout;
+import Queries.ShowQueries;
+import UI.ListLayouts.SearchLayout;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,7 +1,7 @@
 package UI.Controllers;
 
 import DataOperations.DataValidation;
-import DataStorage.AccountQueries;
+import Queries.AccountQueries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

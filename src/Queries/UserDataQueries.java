@@ -1,4 +1,4 @@
-package DataStorage;
+package Queries;
 
 import Core.Show;
 
@@ -55,4 +55,6 @@ public class UserDataQueries {
         myConn.close();
         return show;
     }
+
+
 }

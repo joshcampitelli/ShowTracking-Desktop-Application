@@ -1,8 +1,8 @@
 package Core;
 
-import DataStorage.AccountQueries;
-import DataStorage.ShowQueries;
-import DataStorage.UserDataQueries;
+import Queries.AccountQueries;
+import Queries.ShowQueries;
+import Queries.UserDataQueries;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import java.sql.SQLException;
@@ -12,15 +12,21 @@ import java.util.ArrayList;
  * Class represents a currentUser of the program, once logged in stores info about currentUser, some loaded from database.
  */
 public class User {
+    /*DataBase Query Variables*/
     private AccountQueries accountQueries;
     private UserDataQueries userDataQueries;
     private ShowQueries showQueries;
+
+    /*User's Logged Shows*/
     private ArrayList<Show> loggedShows;
 
+    /*User Database Columns (Ordered)*/
+    private int userID;
     private String username;
     private String firstName;
     private String lastName;
-    private int userID;
+    private String email;
+    private int age;
 
     //Upon Login the currentUser is instantiated, all database info is then pulled locally
     public User(String username) {
@@ -45,27 +51,16 @@ public class User {
         }
     }
 
+    /*Adds a show to the user's logged shows*/
     public void addShow(Show show) {
-        loggedShows.add(show);
         try {
             showQueries.addNewShow(userID, show.getID());
+            loggedShows.add(show);
         } catch (MySQLIntegrityConstraintViolationException exception) {
             System.out.println("[Duplicate Entry] Show Already being Tracked.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
     public ArrayList<Show> getAllShows() {
