@@ -1,4 +1,4 @@
-package Core;
+package Model;
 
 import javafx.scene.control.CheckBox;
 

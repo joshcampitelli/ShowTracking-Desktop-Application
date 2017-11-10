@@ -2,7 +2,7 @@ package UI.ListLayouts;
 
 import java.util.ArrayList;
 import java.util.List;
-import Core.Show;
+import Model.Show;
 import UI.EditButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

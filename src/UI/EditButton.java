@@ -1,6 +1,6 @@
 package UI;
 
-import Core.Show;
+import Model.Show;
 import UI.Controllers.EditController;
 import javafx.scene.control.Button;
 

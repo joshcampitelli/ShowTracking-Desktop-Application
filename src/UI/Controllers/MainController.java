@@ -1,6 +1,6 @@
 package UI.Controllers;
 
-import Core.Show;
+import Model.Show;
 import UI.ListLayouts.MainLayout;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

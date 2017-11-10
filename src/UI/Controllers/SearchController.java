@@ -1,6 +1,6 @@
 package UI.Controllers;
 
-import Core.Show;
+import Model.Show;
 import Queries.ShowQueries;
 import UI.ListLayouts.SearchLayout;
 import javafx.collections.ObservableList;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
+    //private static final int WIDTH = 300; // any value
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list = new ArrayList<>();

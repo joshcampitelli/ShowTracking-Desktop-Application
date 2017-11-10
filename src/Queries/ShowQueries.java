@@ -1,6 +1,6 @@
 package Queries;
 
-import Core.Show;
+import Model.Show;
 
 import java.sql.*;
 import java.util.ArrayList;

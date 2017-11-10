@@ -28,6 +28,10 @@ public class AddShowController extends Controller implements Initializable {
         showQueries = new ShowQueries();
     }
 
+    public AddShowController() {
+
+    }
+
     public void addShow() {
         try {
             showQueries.addNewShow(nameFld.getText(), Integer.valueOf(yearFld.getText()), genreFld.getText(), Integer.valueOf(runtimeFld.getText()), Integer.valueOf(seasonsFld.getText()), Integer.valueOf(episodesFld.getText()), Integer.valueOf(ratingFld.getText()));

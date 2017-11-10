@@ -1,4 +1,4 @@
-package Core;
+package Model;
 
 import Queries.AccountQueries;
 import Queries.ShowQueries;

@@ -1,6 +1,6 @@
 package UI.Controllers;
 
-import Core.Show;
+import Model.Show;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ public class EditController extends Controller {
     public EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            createStage("EditWindow", "Edit Show", searchWidth, searchHeight);
+            createStage("EditWindow", "Edit Show", 300, 300);
             event.consume();
         }
     };
