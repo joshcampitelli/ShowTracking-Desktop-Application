@@ -1,6 +1,6 @@
 package UI.Controllers;
 
-import Core.User;
+import Model.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
-
+/*todo: new design: Controllers will each have a constructor which constructs it's own window.*/
 public class Controller {
     //TODO: size variables should be final
     int loginHeight = 275;
