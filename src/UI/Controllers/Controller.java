@@ -1,12 +1,16 @@
 package UI.Controllers;
 
+import Model.Show;
 import Model.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 /*todo: new design: Controllers will each have a constructor which constructs it's own window.*/
 public class Controller {
@@ -19,6 +23,8 @@ public class Controller {
     int mainWidth = 600;
     int searchHeight = 360;
     int searchWidth = 240;
+    int editWidth = 240;
+    int editHeight = 195;
 
     //static so when modified in one subclass, changes for all
     private static User currentUser;
@@ -45,13 +51,31 @@ public class Controller {
 
             File file = new File("src/UI/FXML/" + fxmlClass + ".fxml");
             URL url = file.toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-
+            FXMLLoader loader = new FXMLLoader(url);
+            Parent root = loader.load();
             primaryStage.setTitle(title);
             primaryStage.setScene(new Scene(root, w, h));
             primaryStage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    /*Could pass arguments to initialize data on the controller*/
+    public void openEditWindow(Show show) {
+        try {
+            File file = new File("src/UI/FXML/EditWindow.fxml");
+            URL url = file.toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            Parent root = loader.load();
+
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene(root, editWidth, editHeight));
+            EditController controller = loader.getController();
+            controller.initData(show);
+            stage.show();
+        } catch (IOException e) {
+
         }
     }
 
