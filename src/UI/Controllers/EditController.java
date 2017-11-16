@@ -4,17 +4,9 @@ import Model.Show;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,8 +21,7 @@ public class EditController extends Controller {
     public Button cancelBtn;
     public Button confirmBtn;
 
-    private String se = "";
-    private String ep = "";
+    private Show show;
 
     public EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
         @Override
@@ -41,7 +32,35 @@ public class EditController extends Controller {
     };
 
     public void initData(Show show) {
+        this.show = show;
+        addListeners();
         episode.setText(show.getEpisode() + "");
         season.setText(show.getSeason() + "");
+    }
+
+    private void addListeners() {
+        epIncBtn.setOnAction(event -> {
+            int value = Integer.valueOf(episode.getText());
+            if (value <= 50)
+                episode.setText((value+1) + "");
+        });
+
+        epDecBtn.setOnAction(event -> {
+            int value = Integer.valueOf(episode.getText());
+            if (value > 0)
+                episode.setText((value-1) + "");
+        });
+
+        seIncBtn.setOnAction(event -> {
+            int value = Integer.valueOf(season.getText());
+            if (value <= 50)
+                season.setText((value+1) + "");
+        });
+
+        seDecBtn.setOnAction(event -> {
+            int value = Integer.valueOf(season.getText());
+            if (value > 0)
+                season.setText((value-1) + "");
+        });
     }
 }
