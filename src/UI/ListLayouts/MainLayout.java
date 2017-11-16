@@ -3,11 +3,9 @@ package UI.ListLayouts;
 import java.util.ArrayList;
 import java.util.List;
 import Model.Show;
-import UI.EditButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,11 +17,11 @@ public class MainLayout {
         Label showName = new Label();
         Label episode = new Label();
         Label season = new Label();
-        EditButton editBtn = new EditButton("Edit");
+        Show show;
 
         HBoxCell(Show show) {
             super();
-            editBtn.setShow(show);
+            this.show = show;
             showName.setText(show.getName());
             season.setText(String.valueOf(show.getSeason()));
             episode.setText(String.valueOf(show.getEpisode()));
@@ -35,9 +33,11 @@ public class MainLayout {
 
             season.setPadding(new Insets(0, 30, 0, 10));
             episode.setPadding(new Insets(0, 50, 0, 30));
-            editBtn.setMinWidth(20);
+            this.getChildren().addAll(nameVBox, season, episode);
+        }
 
-            this.getChildren().addAll(nameVBox, season, episode, editBtn);
+        public Show getShow() {
+            return show;
         }
     }
 

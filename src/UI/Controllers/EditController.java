@@ -40,23 +40,8 @@ public class EditController extends Controller {
         }
     };
 
-    //todo: Known Issue.
-    public EditController(Show show) {/*
-        if (show != null) {
-            System.out.println(show.getName());
-            se = show.getSeason() + "";
-            ep = show.getEpisode() + "";
-        }
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("src/UI/FXML/EditWindow.fxml"));
-
-            Stage primaryStage = new Stage();
-            primaryStage.setTitle("ShowTracker");
-            primaryStage.setScene(new Scene(root, 275, 300));
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
+    public void initData(Show show) {
+        episode.setText(show.getEpisode() + "");
+        season.setText(show.getSeason() + "");
     }
 }
