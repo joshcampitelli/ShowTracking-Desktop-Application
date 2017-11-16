@@ -34,7 +34,7 @@ public class MainController extends Controller implements Initializable {
 
     public void startSearch(ActionEvent event) {
         createStage("SearchWindow", "Show Search", searchWidth, searchHeight);
-        //this.closeStage(searchBtn);
+        this.closeStage(searchBtn);
         event.consume();
     }
 
