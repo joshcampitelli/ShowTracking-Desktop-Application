@@ -1,14 +1,11 @@
 package UI.Controllers;
 
 import Model.Show;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import Queries.ShowQueries;
+import Queries.UserDataQueries;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EditController extends Controller {
     @FXML
@@ -22,14 +19,7 @@ public class EditController extends Controller {
     public Button confirmBtn;
 
     private Show show;
-
-    public EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            createStage("EditWindow", "Edit Show", 300, 300);
-            event.consume();
-        }
-    };
+    private UserDataQueries userDataQueries;
 
     public void initData(Show show) {
         this.show = show;
@@ -61,6 +51,11 @@ public class EditController extends Controller {
             int value = Integer.valueOf(season.getText());
             if (value > 0)
                 season.setText((value-1) + "");
+        });
+
+        cancelBtn.setOnAction(event -> closeStage(cancelBtn));
+        confirmBtn.setOnAction(event -> {
+            //update user data queries 
         });
     }
 }
