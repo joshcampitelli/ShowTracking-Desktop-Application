@@ -63,6 +63,10 @@ public class User {
         }
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
     public ArrayList<Show> getAllShows() {
         return loggedShows;
     }
