@@ -1,7 +1,6 @@
 package UI.Controllers;
 
 import Model.Show;
-import Queries.ShowQueries;
 import Queries.UserDataQueries;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -64,7 +63,11 @@ public class EditController extends Controller {
             }
         });
 
-        cancelBtn.setOnAction(event -> closeStage(cancelBtn));
+        cancelBtn.setOnAction(event -> {
+            closeStage(cancelBtn);
+            createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+        });
+
         confirmBtn.setOnAction(event -> {
             try {
                 userDataQueries.updateShow(show, getCurrentUser());

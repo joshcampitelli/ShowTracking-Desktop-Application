@@ -33,7 +33,7 @@ public class MainLayout {
 
             season.setPadding(new Insets(0, 30, 0, 10));
             episode.setPadding(new Insets(0, 50, 0, 30));
-            this.getChildren().addAll(nameVBox, season, episode);
+            this.getChildren().addAll(nameVBox, episode, season);
         }
 
         public Show getShow() {

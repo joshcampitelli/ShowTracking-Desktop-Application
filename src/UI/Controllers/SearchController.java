@@ -35,7 +35,6 @@ public class SearchController extends Controller implements Initializable {
 
     @FXML
     public ListView<SearchLayout.HBoxCell> showList;
-    public Button searchBtn;
     public Button addShowsBtn;
     public Button cancelBtn;
     public TextField searchField;

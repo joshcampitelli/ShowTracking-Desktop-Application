@@ -25,7 +25,7 @@ public class UserDataQueries {
             show.setEpisode(rs.getInt("episode"));
             showList.add(show);
         }
-        
+
         myConn.close();
         return showList;
     }
