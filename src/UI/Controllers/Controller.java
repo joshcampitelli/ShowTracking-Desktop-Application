@@ -12,7 +12,7 @@ import javafx.stage.StageStyle;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-/*todo: new design: Controllers will each have a constructor which constructs it's own window.*/
+
 public class Controller {
     //TODO: size variables should be final
     int loginHeight = 275;
