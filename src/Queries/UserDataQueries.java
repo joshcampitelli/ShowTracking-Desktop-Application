@@ -1,13 +1,11 @@
 package Queries;
 
 import Model.Show;
+import Model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * Created by joshc on 2017-09-12.
- */
 public class UserDataQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
@@ -15,7 +13,6 @@ public class UserDataQueries {
 
     public ArrayList<Show> getLoggedShows(int userID) throws SQLException {
         ArrayList<Show> showList = new ArrayList<>();
-        ArrayList<Integer> showIDs = new ArrayList<>();
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
         String sql = "SELECT * FROM show_log WHERE user_ID = " + userID;
 
@@ -23,24 +20,17 @@ public class UserDataQueries {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
-            showIDs.add(rs.getInt("show_ID"));
+            Show show = getShowFromID(rs.getInt("show_ID"));
+            show.setSeason(rs.getInt("season"));
+            show.setEpisode(rs.getInt("episode"));
+            showList.add(show);
         }
-
-        Show show;
-        for (Integer i : showIDs) {
-            try {
-                show = getShowFromID(i);
-                showList.add(show);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
+        
         myConn.close();
         return showList;
     }
 
-    public Show getShowFromID(int id) throws SQLException {
+    private Show getShowFromID(int id) throws SQLException {
         Show show = null;
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
         String sql = "SELECT * FROM shows WHERE ID = " + id;
@@ -56,5 +46,12 @@ public class UserDataQueries {
         return show;
     }
 
+    public void updateShow(Show show, User user) throws SQLException {
+        Connection connection = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "UPDATE show_log SET season = " + show.getSeason() + ", episode = " + show.getEpisode() + " WHERE user_ID = " + user.getUserID() + " AND show_ID = " + show.getID();
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.executeUpdate();
+    }
 
 }

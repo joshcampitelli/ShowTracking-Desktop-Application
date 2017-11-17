@@ -69,7 +69,15 @@ public class Show {
         return season;
     }
 
+    public void setSeason(int season) {
+        this.season = season;
+    }
+
     public int getEpisode() {
         return episode;
+    }
+
+    public void setEpisode(int episode) {
+        this.episode = episode;
     }
 }

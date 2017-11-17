@@ -28,6 +28,9 @@ public class MainController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Show> list = getCurrentUser().getAllShows();
+        for (Show show : list) {
+            System.out.println(show.getName() + ": Se: " + show.getSeason());
+        }
         ObservableList<MainLayout.HBoxCell> observableList = searchLayout.createContent(list);
         dataList.setItems(observableList);
     }
@@ -41,5 +44,6 @@ public class MainController extends Controller implements Initializable {
     public void editShow(ActionEvent event) {
         Show show = dataList.getSelectionModel().getSelectedItem().getShow();
         openEditWindow(show);
+        this.closeStage(searchBtn);
     }
 }
