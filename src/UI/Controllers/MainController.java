@@ -9,6 +9,9 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,6 +22,9 @@ public class MainController extends Controller implements Initializable {
     public Button editShowBtn;
     public ListView<MainLayout.HBoxCell> dataList;
     private MainLayout searchLayout = new MainLayout();
+
+    @FXML
+    public MenuBar myMenuBar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,6 +43,12 @@ public class MainController extends Controller implements Initializable {
         Show show = dataList.getSelectionModel().getSelectedItem().getShow();
         openEditWindow(show);
         this.closeStage(editShowBtn);
+        event.consume();
+    }
+
+    public void closeProgram(ActionEvent event) {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
         event.consume();
     }
 }

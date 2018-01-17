@@ -16,6 +16,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("ShowTracker");
         primaryStage.setScene(new Scene(root, 275, 300));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

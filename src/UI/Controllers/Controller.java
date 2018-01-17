@@ -55,6 +55,7 @@ public class Controller {
             Parent root = loader.load();
             primaryStage.setTitle(title);
             primaryStage.setScene(new Scene(root, w, h));
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
