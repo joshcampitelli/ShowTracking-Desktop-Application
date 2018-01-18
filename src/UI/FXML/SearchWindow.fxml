@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="238.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="238.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SearchController">
    <children>
       <TextField fx:id="searchField" layoutX="19.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" promptText="Show Name" />
       <ListView fx:id="showList" layoutX="19.0" layoutY="51.0" prefHeight="250.0" prefWidth="200.0" />

@@ -45,19 +45,39 @@ public class User {
             userID = accountQueries.getUserID(username);
             firstName = accountQueries.getFirstName(userID);
             lastName = accountQueries.getLastName(userID);
+            email = accountQueries.getEmail(userID);
+            age = accountQueries.getAge(userID);
             loggedShows = userDataQueries.getLoggedShows(userID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    public void updateAccount() {
+        try {
+            firstName = accountQueries.getFirstName(userID);
+            lastName = accountQueries.getLastName(userID);
+            email = accountQueries.getEmail(userID);
+            age = accountQueries.getAge(userID);
+        } catch (SQLException e) {}
+    }
+
     /*Adds a show to the user's logged shows*/
     public void addShow(Show show) {
         try {
-            showQueries.addNewShow(userID, show.getID());
+            userDataQueries.addShow(userID, show.getID());
             loggedShows.add(show);
         } catch (MySQLIntegrityConstraintViolationException exception) {
             System.out.println("[Duplicate Entry] Show Already being Tracked.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeShow(Show show) {
+        try {
+            userDataQueries.removeShow(userID, show.getID());
+            loggedShows.remove(show);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,5 +89,51 @@ public class User {
 
     public ArrayList<Show> getAllShows() {
         return loggedShows;
+    }
+
+    /**Generated Accessors**/
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

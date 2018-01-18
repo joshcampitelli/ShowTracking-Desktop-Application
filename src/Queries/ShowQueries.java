@@ -35,32 +35,6 @@ public class ShowQueries {
         return showList;
     }
 
-    /**
-     * Automatically sets the episode and season to 1 and 1, which will then be modified by user.
-     * @param userID
-     * @param showID
-     * @throws SQLException
-     * todo: Should be in a user dataqueries class, each class should operate on an individual table in DB.
-     * todo: rename to logNewShow for user, and fix occurrences
-     */
-    public void addNewShow(int userID, int showID) throws SQLException {
-        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-
-        String sql = "INSERT INTO show_log"
-                + " (user_ID, show_ID, season, episode)"
-                + " VALUES (?, ?, ?, ?)";
-
-        PreparedStatement statement = myConn.prepareStatement(sql);
-        statement.setInt(1,userID);
-        statement.setInt(2,showID);
-        statement.setInt(3,1);
-        statement.setInt(4,1);
-        statement.executeUpdate();
-
-        myConn.close();
-        System.out.println("[Important] Successfully Added Show!");
-    }
-
     public void addNewShow(String name, int year, String genre, int runtime, int seasons, int episodes, int rating) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 

@@ -55,6 +55,7 @@ public class Controller {
             Parent root = loader.load();
             primaryStage.setTitle(title);
             primaryStage.setScene(new Scene(root, w, h));
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -73,6 +74,23 @@ public class Controller {
             stage.setScene(new Scene(root, editWidth, editHeight));
             EditController controller = loader.getController();
             controller.initData(show);
+            stage.show();
+        } catch (IOException e) {
+
+        }
+    }
+
+    public void openAccountWindow() {
+        try {
+            File file = new File("src/UI/FXML/AccountWindow.fxml");
+            URL url = file.toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            Parent root = loader.load();
+
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene(root, 360, 303));
+            AccountController controller = loader.getController();
+            controller.initData(currentUser);
             stage.show();
         } catch (IOException e) {
 

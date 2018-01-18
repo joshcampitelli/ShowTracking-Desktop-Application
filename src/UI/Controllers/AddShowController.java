@@ -22,7 +22,7 @@ public class AddShowController extends Controller implements Initializable {
     public Button addBtn;
     public Button cancelBtn;
 
-    ShowQueries showQueries;
+    private ShowQueries showQueries;
 
     public void initialize(URL location, ResourceBundle resources) {
         showQueries = new ShowQueries();
