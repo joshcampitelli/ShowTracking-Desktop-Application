@@ -151,4 +151,32 @@ public class AccountQueries {
         return rs.getString("lastname");
     }
 
+    public String getEmail(int userID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT email FROM user_accounts WHERE ID = " + userID;
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return rs.getString("email");
+    }
+
+    public int getAge(int userID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT age FROM user_accounts WHERE ID = " + userID;
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return rs.getInt("age");
+    }
+
+    public void updateAccount(int userID, String firstName, String lastName, String email, int age) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        PreparedStatement ps = myConn.prepareStatement("UPDATE user_Accounts SET firstname = ?, lastname = ?, email = ?, age = ? WHERE id = ?");
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        ps.setString(3, email);
+        ps.setInt(4, age);
+        ps.setInt(5, userID);
+        ps.executeUpdate();
+    }
 }

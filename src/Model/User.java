@@ -45,6 +45,8 @@ public class User {
             userID = accountQueries.getUserID(username);
             firstName = accountQueries.getFirstName(userID);
             lastName = accountQueries.getLastName(userID);
+            email = accountQueries.getEmail(userID);
+            age = accountQueries.getAge(userID);
             loggedShows = userDataQueries.getLoggedShows(userID);
         } catch (SQLException e) {
             e.printStackTrace();
