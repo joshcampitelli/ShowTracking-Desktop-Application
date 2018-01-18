@@ -22,7 +22,7 @@ public class Controller {
     int mainHeight = 400;
     int mainWidth = 600;
     int searchHeight = 360;
-    int searchWidth = 240;
+    int searchWidth = 312;
     int editWidth = 240;
     int editHeight = 195;
 

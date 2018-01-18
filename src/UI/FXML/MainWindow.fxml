@@ -29,7 +29,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#deleteShow" text="Delete" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteShow" text="Remove Show" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -43,7 +43,7 @@
         <Label layoutX="42.0" layoutY="72.0" text="Show Name" />
         <Label layoutX="468.0" layoutY="72.0" text="Episode" />
         <Label layoutX="377.0" layoutY="72.0" text="Season" />
-        <Button fx:id="editShowBtn" layoutX="363.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="25.0" prefWidth="77.0" text="Edit Show" />
+        <Button fx:id="editShowBtn" layoutX="320.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="28.0" prefWidth="120.0" text="Edit Show" />
         <Separator layoutX="30.0" layoutY="68.0" prefHeight="3.0" prefWidth="535.0" />
     </children>
 </AnchorPane>

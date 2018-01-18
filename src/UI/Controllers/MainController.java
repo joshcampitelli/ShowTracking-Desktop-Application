@@ -36,51 +36,46 @@ public class MainController extends Controller implements Initializable {
 
     public void startSearch(ActionEvent event) {
         createStage("SearchWindow", "Show Search", searchWidth, searchHeight);
-        this.closeStage(editShowBtn);
+        closeStage(editShowBtn);
         event.consume();
     }
 
     public void editShow(ActionEvent event) {
-        Show show = dataList.getSelectionModel().getSelectedItem().getShow();
-        if (show == null) {
-            JOptionPane.showMessageDialog(null, "Must select a show!", "Remove", JOptionPane.ERROR_MESSAGE);
+        MainLayout.HBoxCell hBoxCell = dataList.getSelectionModel().getSelectedItem();
+
+        if (hBoxCell == null) {
+            JOptionPane.showMessageDialog(null, "Must select a show!", "Edit", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        Show show = hBoxCell.getShow();
         openEditWindow(show);
-        this.closeStage(editShowBtn);
+        closeStage(editShowBtn);
         event.consume();
     }
 
     public void deleteShow(ActionEvent event) {
-        Show show = dataList.getSelectionModel().getSelectedItem().getShow();
-        if (show == null) {
+
+        MainLayout.HBoxCell hBoxCell = dataList.getSelectionModel().getSelectedItem();
+
+        if (hBoxCell == null) {
             JOptionPane.showMessageDialog(null, "Must select a show!", "Remove", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        Show show = hBoxCell.getShow();
         getCurrentUser().removeShow(show);
         event.consume();
     }
 
-    /**
-     * Closes the MainWindow
-     * @param event
-     */
-    public void closeMain(ActionEvent event) {
-        Stage stage = (Stage) myMenuBar.getScene().getWindow();
-        stage.close();
-        event.consume();
-    }
-
     public void logout(ActionEvent event) {
-        closeMain(event);
+        closeStage(editShowBtn);
         createStage("LoginWindow", "ShowTracker", loginWidth, loginHeight);
         event.consume();
     }
 
     public void editAccount(ActionEvent event) {
-        closeMain(event);
+        closeStage(editShowBtn);
         openAccountWindow();
     }
 }
