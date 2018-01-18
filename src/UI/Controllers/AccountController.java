@@ -4,6 +4,7 @@ import Model.User;
 import Queries.AccountQueries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -25,6 +26,9 @@ public class AccountController extends Controller implements Initializable {
     public TextField passwordFld;
     public TextField ageFld;
 
+    public Button saveBtn;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         accountQueries = new AccountQueries();
@@ -43,8 +47,17 @@ public class AccountController extends Controller implements Initializable {
     public void updateAccount() {
         try {
             accountQueries.updateAccount(user.getUserID(), firstNameFld.getText(), lastNameFld.getText(), emailFld.getText(), Integer.valueOf(ageFld.getText()));
+            user.updateAccount();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        closeStage(saveBtn);
+        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+    }
+
+    public void cancel () {
+        closeStage(saveBtn);
+        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
     }
 }

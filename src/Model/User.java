@@ -53,6 +53,15 @@ public class User {
         }
     }
 
+    public void updateAccount() {
+        try {
+            firstName = accountQueries.getFirstName(userID);
+            lastName = accountQueries.getLastName(userID);
+            email = accountQueries.getEmail(userID);
+            age = accountQueries.getAge(userID);
+        } catch (SQLException e) {}
+    }
+
     /*Adds a show to the user's logged shows*/
     public void addShow(Show show) {
         try {
