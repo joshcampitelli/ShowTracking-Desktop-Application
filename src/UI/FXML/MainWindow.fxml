@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="383.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
     <children>
-        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" prefHeight="275.0" prefWidth="535.0">
+        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" prefHeight="285.0" prefWidth="535.0">
             <padding>
                 <Insets top="20.0" />
             </padding>
@@ -23,12 +23,10 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Account">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Update Account"/>
-                        <MenuItem mnemonicParsing="false" text="Logout"/>
-                        <MenuItem mnemonicParsing="false" text="Close" onAction="#closeProgram"/>
+                        <MenuItem mnemonicParsing="false" onAction="#logout" text="Logout" />
+                        <MenuItem mnemonicParsing="false" onAction="#editAccount" text="Edit Account" />
                     </items>
                 </Menu>
-
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Delete" />
@@ -41,11 +39,11 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <Button layoutX="458.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="25.0" prefWidth="108.0" text="Find New Shows" />
+        <Button layoutX="446.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="28.0" prefWidth="120.0" text="Find New Shows" />
         <Label layoutX="42.0" layoutY="72.0" text="Show Name" />
         <Label layoutX="468.0" layoutY="72.0" text="Episode" />
         <Label layoutX="377.0" layoutY="72.0" text="Season" />
-        <Button fx:id="editShowBtn" layoutX="371.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="25.0" prefWidth="77.0" text="Edit Show" />
+        <Button fx:id="editShowBtn" layoutX="363.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="25.0" prefWidth="77.0" text="Edit Show" />
         <Separator layoutX="30.0" layoutY="68.0" prefHeight="3.0" prefWidth="535.0" />
     </children>
 </AnchorPane>

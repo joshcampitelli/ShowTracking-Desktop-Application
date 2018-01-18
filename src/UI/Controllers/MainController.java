@@ -46,9 +46,24 @@ public class MainController extends Controller implements Initializable {
         event.consume();
     }
 
-    public void closeProgram(ActionEvent event) {
+    /**
+     * Closes the MainWindow
+     * @param event
+     */
+    public void closeMain(ActionEvent event) {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
         event.consume();
+    }
+
+    public void logout(ActionEvent event) {
+        closeMain(event);
+        createStage("LoginWindow", "ShowTracker", loginWidth, loginHeight);
+        event.consume();
+    }
+
+    public void editAccount(ActionEvent event) {
+        closeMain(event);
+        openAccountWindow();
     }
 }

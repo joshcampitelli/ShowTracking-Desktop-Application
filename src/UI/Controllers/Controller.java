@@ -80,6 +80,23 @@ public class Controller {
         }
     }
 
+    public void openAccountWindow() {
+        try {
+            File file = new File("src/UI/FXML/AccountWindow.fxml");
+            URL url = file.toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            Parent root = loader.load();
+
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene(root, 360, 303));
+            AccountController controller = loader.getController();
+            controller.initData(currentUser);
+            stage.show();
+        } catch (IOException e) {
+
+        }
+    }
+
     protected void alertWindow(String title, String mainText, String subText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
