@@ -10,12 +10,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/LoginWindow.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("FXML/LoginWindow.fxml"));
+        //primaryStage.setScene(new Scene(root, 275, 300));
+
         //Below line to add Shows to DB
-        //Parent root = FXMLLoader.load(getClass().getResource("FXML/AddShowWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/AddShowWindow.fxml"));
+        primaryStage.setScene(new Scene(root, 303, 410));
 
         primaryStage.setTitle("ShowTracker");
-        primaryStage.setScene(new Scene(root, 275, 300));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

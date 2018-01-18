@@ -65,10 +65,19 @@ public class User {
     /*Adds a show to the user's logged shows*/
     public void addShow(Show show) {
         try {
-            showQueries.addNewShow(userID, show.getID());
+            userDataQueries.addShow(userID, show.getID());
             loggedShows.add(show);
         } catch (MySQLIntegrityConstraintViolationException exception) {
             System.out.println("[Duplicate Entry] Show Already being Tracked.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeShow(Show show) {
+        try {
+            userDataQueries.removeShow(userID, show.getID());
+            loggedShows.remove(show);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,7 +91,7 @@ public class User {
         return loggedShows;
     }
 
-    /**GENERATED GETTER AND SETTERS**/
+    /**Generated Accessors**/
 
     public void setUserID(int userID) {
         this.userID = userID;

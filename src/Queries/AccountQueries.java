@@ -16,7 +16,6 @@ public class AccountQueries {
      * @param username a String value entered by the user
      * @param password a String value entered by the user
      * @return boolean
-     * todo: Throw SQLException instead of try/catch block
      */
     public static Boolean login(String username, String password) {
         String encodedPassword = DataEncryption.MD5(password);
@@ -117,10 +116,10 @@ public class AccountQueries {
 
         statement.close();
         rs.close();
+        myConn.close();
         return false;
     }
 
-    //Todo: UPDATE: the following methods need to be updated.
     public int getUserID(String username) throws SQLException {
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -178,5 +177,6 @@ public class AccountQueries {
         ps.setInt(4, age);
         ps.setInt(5, userID);
         ps.executeUpdate();
+        myConn.close();
     }
 }

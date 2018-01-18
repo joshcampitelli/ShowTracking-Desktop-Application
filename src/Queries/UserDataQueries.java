@@ -21,6 +21,8 @@ public class UserDataQueries {
 
         while (rs.next()) {
             Show show = getShowFromID(rs.getInt("show_ID"));
+            if (show == null)
+                continue;
             show.setSeason(rs.getInt("season"));
             show.setEpisode(rs.getInt("episode"));
             showList.add(show);
@@ -54,4 +56,42 @@ public class UserDataQueries {
         statement.executeUpdate();
     }
 
+    /**
+     * Automatically sets the episode and season to 1 and 1, which will then be modified by user.
+     * @param userID
+     * @param showID
+     * @throws SQLException
+     * todo: Should be in a user dataqueries class, each class should operate on an individual table in DB.
+     * todo: rename to logNewShow for user, and fix occurrences
+     */
+    public void addShow(int userID, int showID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+
+        String sql = "INSERT INTO show_log"
+                + " (user_ID, show_ID, season, episode)"
+                + " VALUES (?, ?, ?, ?)";
+
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setInt(1,userID);
+        statement.setInt(2,showID);
+        statement.setInt(3,1);
+        statement.setInt(4,1);
+        statement.executeUpdate();
+
+        myConn.close();
+        System.out.println("[Important] Successfully Added Show!");
+    }
+
+    public void removeShow(int userID, int showID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+
+        String sql = "DELETE FROM show_log WHERE user_ID = ? AND show_ID = ?";
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setInt(1, userID);
+        statement.setInt(2, showID);
+        statement.executeUpdate();
+
+        myConn.close();
+        System.out.println("[Important] Successfully Removed Show!");
+    }
 }

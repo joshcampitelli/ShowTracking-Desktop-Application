@@ -13,6 +13,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,8 +42,24 @@ public class MainController extends Controller implements Initializable {
 
     public void editShow(ActionEvent event) {
         Show show = dataList.getSelectionModel().getSelectedItem().getShow();
+        if (show == null) {
+            JOptionPane.showMessageDialog(null, "Must select a show!", "Remove", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         openEditWindow(show);
         this.closeStage(editShowBtn);
+        event.consume();
+    }
+
+    public void deleteShow(ActionEvent event) {
+        Show show = dataList.getSelectionModel().getSelectedItem().getShow();
+        if (show == null) {
+            JOptionPane.showMessageDialog(null, "Must select a show!", "Remove", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        getCurrentUser().removeShow(show);
         event.consume();
     }
 
