@@ -45,7 +45,7 @@ public class SearchController extends Controller implements Initializable {
         boolean addShow = false;
 
         for (Show show : list) {
-            if (show.getCheckBox().isSelected()) {
+            if (show.getSelect().isSelected()) {
                 getCurrentUser().addShow(show);
                 addShow = true;
             }

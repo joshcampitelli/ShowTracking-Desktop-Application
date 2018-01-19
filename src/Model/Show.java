@@ -45,10 +45,6 @@ public class Show {
         this.season = season;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getID() {
         return ID;
     }
@@ -57,12 +53,60 @@ public class Show {
         this.ID = ID;
     }
 
-    public CheckBox getCheckBox() {
-        return select;
+    public String getName() {
+        return name;
     }
 
-    public void setCheckBox(CheckBox select) {
-        this.select = select;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
+
+    public int getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(int seasons) {
+        this.seasons = seasons;
+    }
+
+    public int getEpisodes() {
+        return episodes;
+    }
+
+    public void setEpisodes(int episodes) {
+        this.episodes = episodes;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public int getSeason() {
@@ -79,5 +123,13 @@ public class Show {
 
     public void setEpisode(int episode) {
         this.episode = episode;
+    }
+
+    public CheckBox getSelect() {
+        return select;
+    }
+
+    public void setSelect(CheckBox select) {
+        this.select = select;
     }
 }

@@ -10,10 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.net.URL;
@@ -79,6 +77,7 @@ public class MainController extends Controller implements Initializable {
     public void editAccount(ActionEvent event) {
         closeStage(editShowBtn);
         openAccountWindow();
+        event.consume();
     }
 
     public void handle(MouseEvent mouseEvent) {
@@ -92,8 +91,8 @@ public class MainController extends Controller implements Initializable {
                 }
 
                 Show show = hBoxCell.getShow();
-                openEditWindow(show);
-                closeStage(editShowBtn);
+
+                openShowWindow(show);
             }
         }
     }

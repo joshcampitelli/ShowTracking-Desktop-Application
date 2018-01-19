@@ -31,7 +31,7 @@ public class SearchLayout {
 
         for (Show show : showList) {
             showSelect = new CheckBox();
-            show.setCheckBox(showSelect);
+            show.setSelect(showSelect);
             list.add(new HBoxCell(show.getName(), showSelect));
         }
 
