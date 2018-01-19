@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -78,4 +80,22 @@ public class MainController extends Controller implements Initializable {
         closeStage(editShowBtn);
         openAccountWindow();
     }
+
+    public void handle(MouseEvent mouseEvent) {
+        if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if(mouseEvent.getClickCount() == 2){
+                MainLayout.HBoxCell hBoxCell = dataList.getSelectionModel().getSelectedItem();
+
+                if (hBoxCell == null) {
+                    JOptionPane.showMessageDialog(null, "Must select a show!", "View Show Info", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                Show show = hBoxCell.getShow();
+                openEditWindow(show);
+                closeStage(editShowBtn);
+            }
+        }
+    }
+
 }
