@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
 public class EditController extends Controller {
@@ -22,60 +23,57 @@ public class EditController extends Controller {
     private Show show;
     private UserDataQueries userDataQueries;
 
+    public void incrementSe() {
+        int value = Integer.valueOf(season.getText());
+        if (value <= 50) {
+            season.setText((value + 1) + "");
+            show.setSeason(value + 1);
+        }
+    }
+
+    public void decrementSe() {
+        int value = Integer.valueOf(season.getText());
+        if (value > 0) {
+            season.setText((value - 1) + "");
+            show.setSeason(value - 1);
+        }
+    }
+
+    public void incrementEp() {
+        int value = Integer.valueOf(episode.getText());
+        if (value <= 50) {
+            episode.setText((value + 1) + "");
+            show.setEpisode(value + 1);
+        }
+    }
+
+    public void decrementEp() {
+        int value = Integer.valueOf(episode.getText());
+        if (value > 0) {
+            episode.setText((value - 1) + "");
+            show.setEpisode(value - 1);
+        }
+    }
+
     public void initData(Show show) {
         this.show = show;
         userDataQueries = new UserDataQueries();
-        addListeners();
         episode.setText(show.getEpisode() + "");
         season.setText(show.getSeason() + "");
     }
 
-    private void addListeners() {
-        epIncBtn.setOnAction(event -> {
-            int value = Integer.valueOf(episode.getText());
-            if (value <= 50) {
-                episode.setText((value + 1) + "");
-                show.setEpisode(value + 1);
-            }
-        });
+    public void cancel() {
+        closeStage(cancelBtn);
+        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+    }
 
-        epDecBtn.setOnAction(event -> {
-            int value = Integer.valueOf(episode.getText());
-            if (value > 0) {
-                episode.setText((value - 1) + "");
-                show.setEpisode(value - 1);
-            }
-        });
-
-        seIncBtn.setOnAction(event -> {
-            int value = Integer.valueOf(season.getText());
-            if (value <= 50) {
-                season.setText((value + 1) + "");
-                show.setSeason(value + 1);
-            }
-        });
-
-        seDecBtn.setOnAction(event -> {
-            int value = Integer.valueOf(season.getText());
-            if (value > 0) {
-                season.setText((value - 1) + "");
-                show.setSeason(value - 1);
-            }
-        });
-
-        cancelBtn.setOnAction(event -> {
-            closeStage(cancelBtn);
-            createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
-        });
-
-        confirmBtn.setOnAction(event -> {
-            try {
-                userDataQueries.updateShow(show, getCurrentUser());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            closeStage(epDecBtn);
-            createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
-        });
+    public void confirm() {
+        try {
+            userDataQueries.updateShow(show, getCurrentUser());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeStage(epDecBtn);
+        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
     }
 }

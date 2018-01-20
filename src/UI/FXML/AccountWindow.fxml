@@ -29,7 +29,7 @@
       <TextField fx:id="firstNameFld" layoutX="144.0" layoutY="43.0" prefHeight="25.0" prefWidth="197.0" />
       <TextField fx:id="lastNameFld" layoutX="144.0" layoutY="98.0" prefHeight="25.0" prefWidth="197.0" />
       <Label fx:id="idLbl" layoutX="29.0" layoutY="23.0" text="ID:" />
-      <Label fx:id="usernameLbl" layoutX="30.0" layoutY="69.0" />
+      <Label fx:id="usernameLbl" layoutX="36.0" layoutY="67.0" prefHeight="21.0" prefWidth="78.0" />
       <Label layoutX="146.0" layoutY="234.0" text="Age:" />
       <TextField fx:id="ageFld" layoutX="144.0" layoutY="256.0" prefHeight="25.0" prefWidth="197.0" />
    </children>
