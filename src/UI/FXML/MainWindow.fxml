@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="383.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
     <children>
-        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#handle" prefHeight="285.0" prefWidth="535.0">
+        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#viewShow" prefHeight="285.0" prefWidth="535.0">
             <padding>
                 <Insets top="20.0" />
             </padding>
@@ -34,7 +34,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
                     </items>
                 </Menu>
             </menus>
