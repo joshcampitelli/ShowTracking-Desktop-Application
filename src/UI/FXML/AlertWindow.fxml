@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="192.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AlertWindowController">
+<AnchorPane prefHeight="192.0" prefWidth="429.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AlertWindowController">
    <children>
-      <Label fx:id="titleLbl" layoutX="14.0" layoutY="14.0" />
-      <Label fx:id="messageLbl" layoutX="14.0" layoutY="42.0" />
-      <Separator layoutX="16.0" layoutY="29.0" prefHeight="4.0" prefWidth="396.0" />
+      <Label fx:id="titleLbl" layoutX="16.0" layoutY="14.0" text="Error Message:" />
+      <Label fx:id="messageLbl" layoutX="16.0" layoutY="45.0" text="Must select a show to edit" />
+      <Separator layoutX="17.0" layoutY="33.0" prefHeight="4.0" prefWidth="396.0" />
    </children>
 </AnchorPane>
