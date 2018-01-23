@@ -80,7 +80,7 @@ public class MainController extends Controller implements Initializable {
         event.consume();
     }
 
-    public void handle(MouseEvent mouseEvent) {
+    public void viewShow(MouseEvent mouseEvent) {
         if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
             if(mouseEvent.getClickCount() == 2){
                 MainLayout.HBoxCell hBoxCell = dataList.getSelectionModel().getSelectedItem();
@@ -95,6 +95,12 @@ public class MainController extends Controller implements Initializable {
                 openShowWindow(show);
             }
         }
+    }
+
+    public void about(ActionEvent event) {
+        String about = "The Show Tracker Application allows you to keep track of \nyour current season & episode of all your favorite shows.";
+        JOptionPane.showMessageDialog(null, about, "Information", JOptionPane.INFORMATION_MESSAGE);
+        event.consume();
     }
 
 }
