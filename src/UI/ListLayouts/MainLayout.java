@@ -5,6 +5,7 @@ import java.util.List;
 import Model.Show;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -36,6 +37,9 @@ public class MainLayout {
             this.getChildren().addAll(nameVBox, episode, season);
         }
 
+        public boolean checkValue(String value) {
+            return showName.getText().toLowerCase().contains(value.toLowerCase());
+        }
         public Show getShow() {
             return show;
         }
@@ -48,5 +52,9 @@ public class MainLayout {
         }
 
         return FXCollections.observableList(list);
+    }
+
+    public FilteredList<HBoxCell> createContent(ObservableList<HBoxCell> showList) {
+        return new FilteredList<>(showList);
     }
 }

@@ -2,8 +2,10 @@ package UI.Controllers;
 
 import Model.Show;
 import Queries.ShowQueries;
+import UI.ListLayouts.MainLayout;
 import UI.ListLayouts.SearchLayout;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +18,18 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
-    //private static final int WIDTH = 300; // any value
+
+    private SearchLayout searchLayout = new SearchLayout();
+    private ShowQueries showQueries = new ShowQueries();
+
+    @FXML
+    public ListView<SearchLayout.HBoxCell> showList;
+    public Button addShowsBtn;
+    public Button cancelBtn;
+    public TextField searchFld;
+
+    private ArrayList<Show> list;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list = new ArrayList<>();
@@ -26,20 +39,26 @@ public class SearchController extends Controller implements Initializable {
 
         //Todo: Remove already tracked shows from the search window before displaying.
         ObservableList<SearchLayout.HBoxCell> observableList = searchLayout.createContent(list);
+        FilteredList<SearchLayout.HBoxCell> filteredList = new FilteredList<>(observableList);
+        showList.setItems(filteredList);
 
-        showList.setItems(observableList);
+        searchFld.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(element -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                if (element.checkValue(newValue)) {
+                    return true; // Filter matches
+                }
+
+                //Add your filtering conditions here
+
+                return false; // Does not match
+            });
+            showList.setItems(filteredList);
+        });
     }
-
-    private SearchLayout searchLayout = new SearchLayout();
-    private ShowQueries showQueries = new ShowQueries();
-
-    @FXML
-    public ListView<SearchLayout.HBoxCell> showList;
-    public Button addShowsBtn;
-    public Button cancelBtn;
-    public TextField searchField;
-
-    private ArrayList<Show> list;
 
     public void addSelectedShows(ActionEvent event) {
         boolean addShow = false;

@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="312.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SearchController">
    <children>
-      <TextField fx:id="searchField" layoutX="19.0" layoutY="14.0" prefHeight="30.0" prefWidth="274.0" promptText="Show Name" />
+      <TextField fx:id="searchFld" layoutX="19.0" layoutY="14.0" prefHeight="30.0" prefWidth="274.0" promptText="Show Name" />
       <ListView fx:id="showList" layoutX="19.0" layoutY="51.0" prefHeight="250.0" prefWidth="274.0" />
       <Button fx:id="cancelBtn" layoutX="51.0" layoutY="319.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="28.0" prefWidth="96.0" text="Cancel" />
       <Button fx:id="addShowsBtn" layoutX="165.0" layoutY="319.0" mnemonicParsing="false" onAction="#addSelectedShows" prefHeight="28.0" prefWidth="96.0" text="Add Shows" />
