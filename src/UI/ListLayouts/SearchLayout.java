@@ -22,6 +22,10 @@ public class SearchLayout {
             HBox.setHgrow(showName, Priority.ALWAYS);
             this.getChildren().addAll(showName, showSelect);
         }
+
+        public boolean checkValue(String value) {
+            return showName.getText().toLowerCase().contains(value.toLowerCase());
+        }
     }
 
     public ObservableList<HBoxCell> createContent(ArrayList<Show> showList) {

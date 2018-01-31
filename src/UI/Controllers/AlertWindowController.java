@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AlertWindowController  extends Controller implements Initializable {
+public class AlertWindowController extends Controller implements Initializable {
     //States
     final int ERROR_MESSAGE = 0;
     final int INFO_MESSAGE = 1;
