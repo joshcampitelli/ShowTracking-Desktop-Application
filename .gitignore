@@ -6,3 +6,6 @@ Drivers/
 ##Text Files##
 TodoList
 
+##Maven##
+target/
+MavenPOM.txt
