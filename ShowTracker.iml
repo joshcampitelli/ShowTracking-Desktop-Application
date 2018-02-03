@@ -12,17 +12,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="src" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.42-bin" level="project" />
-    <orderEntry type="library" name="json-simple-1.1" level="project" />
-    <orderEntry type="library" name="themoviedbapi-3.7" level="project" />
-    <orderEntry type="library" name="slf4j" level="project" />
-    <orderEntry type="library" name="logback-core-1.2.3" level="project" />
-    <orderEntry type="library" name="logback-classic-1.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
   </component>
 </module>
