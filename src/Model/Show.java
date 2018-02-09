@@ -1,12 +1,14 @@
 package Model;
 
+import Queries.ShowQueries;
 import javafx.scene.control.CheckBox;
+
+import java.sql.SQLException;
 
 /**
  * The class Show represents the shows being tracked by each user of the
  * ShowTracker Program, the local variables in the class are the attributes
  * of each show stored in the DB.
- * Todo: Add Show Images to UI (URLs for each show)
  */
 public class Show {
     /*Show DataBase Columns (Ordered)*/
@@ -18,6 +20,7 @@ public class Show {
     private int seasons;
     private int episodes;
     private int rating;
+    private String image;
 
     /*User Database Columns (Ordered)*/
     private int season;
@@ -43,6 +46,11 @@ public class Show {
         this(ID, name, year, genre, runtime, seasons, episodes, rating);
         this.episode = episode;
         this.season = season;
+    }
+
+    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating, int season, int episode, String image) {
+        this(ID, name, year, genre, runtime, seasons, episodes, rating, episode, season);
+        this.image = image;
     }
 
     public int getID() {
@@ -131,5 +139,26 @@ public class Show {
 
     public void setSelect(CheckBox select) {
         this.select = select;
+    }
+
+    public String getImage() {
+        String image = "";
+        try {
+            ShowQueries showQueries = new ShowQueries();
+            image = showQueries.getImage(ID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return image;
+    }
+
+    public void setImage(String image) {
+        try {
+            ShowQueries showQueries = new ShowQueries();
+            showQueries.setImage(ID, image);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
