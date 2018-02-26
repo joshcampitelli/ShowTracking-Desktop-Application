@@ -9,12 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import javax.swing.*;
 import java.net.URL;
@@ -37,20 +39,15 @@ public class MainController extends Controller implements Initializable {
         FilteredList<HBoxCell> filteredList = mainLayout.createContent(observableList);
         dataList.setItems(filteredList);
 
-        //---------------------
         searchFld.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredList.setPredicate(element -> {
-                if (newValue == null || newValue.isEmpty()) {
+                if (newValue == null || newValue.isEmpty())
                     return true;
-                }
 
-                if (element.checkValue(newValue)) {
+                if (element.checkValue(newValue))
                     return true; // Filter matches
-                }
 
-                //Add your filtering conditions here
-
-                return false; // Does not match
+                return false;
             });
             dataList.setItems(filteredList);
         });

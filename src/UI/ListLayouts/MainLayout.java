@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -19,6 +21,9 @@ public class MainLayout {
         Label episode = new Label();
         Label season = new Label();
         Show show;
+        ImageView imageView;
+
+        private final Image IMAGE_TWITTER = new Image("http://files.softicons.com/download/social-media-icons/fresh-social-media-icons-by-creative-nerds/png/64x64/twitter-bird.png");
 
         HBoxCell(Show show) {
             super();
@@ -29,12 +34,26 @@ public class MainLayout {
 
             VBox nameVBox = new VBox();
             nameVBox.getChildren().add(showName);
-            nameVBox.setMinWidth(325);
-            nameVBox.setMaxWidth(325);
+            nameVBox.setMinWidth(250);
+            nameVBox.setMaxWidth(250);
 
-            season.setPadding(new Insets(0, 30, 0, 10));
-            episode.setPadding(new Insets(0, 50, 0, 30));
-            this.getChildren().addAll(nameVBox, episode, season);
+            Image image;
+            if (show.getImage().equals(""))
+                image = new Image("http://www.iconsplace.com/download/black-rectangle-512.png", true);
+            else
+                image = new Image(show.getImage(), true);
+
+            imageView = new ImageView(image);
+            imageView.setPreserveRatio(true);
+            imageView.setFitWidth(100);
+            imageView.setFitHeight(120);
+
+            //Align Text in cells
+            showName.setPadding(new Insets(35, 0, 0, 20));
+            season.setPadding(new Insets(35, 50, 0, 10));
+            episode.setPadding(new Insets(35, 50, 0, 30));
+
+            this.getChildren().addAll(imageView, nameVBox, episode, season);
         }
 
         public boolean checkValue(String value) {

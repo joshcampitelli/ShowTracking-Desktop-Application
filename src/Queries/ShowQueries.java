@@ -53,4 +53,28 @@ public class ShowQueries {
 
         myConn.close();
     }
+
+    public void setImage(int showID, String imageURL) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+
+        String sql = "UPDATE shows SET image_URL = ? WHERE ID = ?";
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setString(1, imageURL);
+        statement.setInt(2, showID);
+        statement.executeUpdate();
+
+        myConn.close();
+    }
+
+    public String getImage(int showID) throws SQLException {
+        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+
+        String sql = "SELECT image_URL FROM shows WHERE ID = ?";
+        PreparedStatement statement = myConn.prepareStatement(sql);
+        statement.setInt(1, showID);
+        ResultSet rs = statement.executeQuery();
+
+        rs.next();
+        return rs.getString("image_URL");
+    }
 }
