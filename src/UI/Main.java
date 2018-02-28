@@ -10,8 +10,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/LoginWindow.fxml"));
-        primaryStage.setScene(new Scene(root, 275, 300));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/GridWindow.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("FXML/LoginWindow.fxml"));
+        //primaryStage.setScene(new Scene(root, 275, 300));
+
+        //GridView Version
+        primaryStage.setScene(new Scene(root, 600, 440));
 
         //Below line to add Shows to DB
         //Parent root = FXMLLoader.load(getClass().getResource("FXML/AddShowWindow.fxml"));

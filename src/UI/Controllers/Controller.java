@@ -19,7 +19,7 @@ public class Controller {
     int loginWidth = 300;
     int signUpHeight = loginHeight;
     int signUpWidth = loginWidth;
-    int mainHeight = 400;
+    int mainHeight = 515;
     int mainWidth = 600;
     int searchHeight = 360;
     int searchWidth = 312;
