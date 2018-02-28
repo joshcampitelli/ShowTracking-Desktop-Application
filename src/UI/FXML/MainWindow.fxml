@@ -11,9 +11,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="383.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
+<AnchorPane prefHeight="514.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
     <children>
-        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#viewShow" prefHeight="285.0" prefWidth="535.0">
+        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#viewShow" prefHeight="412.0" prefWidth="535.0">
             <padding>
                 <Insets top="20.0" />
             </padding>
@@ -44,6 +44,6 @@
         <Label layoutX="468.0" layoutY="72.0" text="Episode" />
         <Label layoutX="377.0" layoutY="72.0" text="Season" />
         <Button fx:id="editShowBtn" layoutX="320.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="28.0" prefWidth="120.0" text="Edit Show" />
-        <Separator layoutX="30.0" layoutY="68.0" prefHeight="3.0" prefWidth="535.0" />
+        <Separator layoutX="30.0" layoutY="72.0" prefHeight="1.0" prefWidth="535.0" />
     </children>
 </AnchorPane>
