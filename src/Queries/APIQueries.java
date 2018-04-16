@@ -6,15 +6,17 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
+//TODO: GUI wrapper for this class with text field for entering url, text area for displaying JSON and option to enter
+//TODO: into db.
 class APIQueries {
     //Random Movie Request Tests
-    private static String URL1 = "https://api.themoviedb.org/3/movie/550?api_key=nunyabusiness";
+    private static String URL1 = "https://api.themoviedb.org/3/movie/550?api_key=9ae1f37f4a774f763225557376ad2f71";
+    private static String api = "https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US";
 
     public static void main(String [] args) {
         try {
             final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-            executorService.scheduleAtFixedRate(APIQueries::getResponse, 0, 1, TimeUnit.SECONDS);
+            executorService.scheduleAtFixedRate(APIQueries::getResponse, 0, 100, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -24,7 +26,7 @@ class APIQueries {
         try {
             //inline will store the JSON data streamed in string format
             String inline = "";
-            URL url = new URL(URL1);
+            URL url = new URL(api);
 
             //Parse URL into HttpURLConnection in order to open the connection in order to get the JSON data
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
