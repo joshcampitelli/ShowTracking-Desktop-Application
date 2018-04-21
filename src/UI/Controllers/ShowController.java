@@ -26,7 +26,7 @@ public class ShowController extends Controller implements Initializable{
     public void initData(Show show) {
         showIDLbl.setText(showIDLbl.getText() + " " + show.getID());
         nameLbl.setText(nameLbl.getText() + " " + show.getName());
-        dateLbl.setText(dateLbl.getText() + " " + show.getYear());
+        dateLbl.setText(dateLbl.getText() + " " + show.getStartDate());
         genreLbl.setText(genreLbl.getText() + " " + show.getGenre());
         runtimeLbl.setText(runtimeLbl.getText() + " " + show.getRuntime() + " minutes");
         seasonsLbl.setText(seasonsLbl.getText() + " " + show.getSeasons());

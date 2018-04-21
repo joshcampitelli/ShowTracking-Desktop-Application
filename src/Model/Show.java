@@ -1,9 +1,6 @@
 package Model;
 
-import Queries.ShowQueries;
 import javafx.scene.control.CheckBox;
-
-import java.sql.SQLException;
 
 /**
  * The class Show represents the shows being tracked by each user of the
@@ -12,15 +9,16 @@ import java.sql.SQLException;
  */
 public class Show {
     /*Show DataBase Columns (Ordered)*/
-    private int ID;
+    private long ID;
     private String name;
-    private int year;
+    private String startDate;
     private String genre;
-    private int runtime;
-    private int seasons;
-    private int episodes;
-    private int rating;
+    private String runtime;
+    private long seasons;
+    private long episodes;
+    private double rating;
     private String image;
+    private String overview;
 
     /*User Database Columns (Ordered)*/
     private int season;
@@ -30,34 +28,31 @@ public class Show {
     private CheckBox select;
 
     /*Used to construct a show without a user's info*/
-    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating) {
+    public Show(long ID, String name, String startDate, String genre, String runtime, long seasons, long episodes, double rating, String image, String overview) {
         this.ID = ID;
         this.name = name;
-        this.year = year;
+        this.startDate = startDate;
         this.genre = genre;
         this.runtime = runtime;
         this.seasons = seasons;
         this.episodes = episodes;
         this.rating = rating;
+        this.image = image;
+        this.overview = overview;
     }
 
     /*Used to construct a show with user's info*/
-    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating, int season, int episode) {
-        this(ID, name, year, genre, runtime, seasons, episodes, rating);
+    public Show(long ID, String name, String startDate, String genre, String runtime, long seasons, long episodes, double rating, String image, String overview, int season, int episode) {
+        this(ID, name, startDate, genre, runtime, seasons, episodes, rating, image, overview);
         this.episode = episode;
         this.season = season;
     }
 
-    public Show(int ID, String name, int year, String genre, int runtime, int seasons, int episodes, int rating, int season, int episode, String image) {
-        this(ID, name, year, genre, runtime, seasons, episodes, rating, episode, season);
-        this.image = image;
-    }
-
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 
@@ -69,12 +64,12 @@ public class Show {
         this.name = name;
     }
 
-    public int getYear() {
-        return year;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String getGenre() {
@@ -85,36 +80,52 @@ public class Show {
         this.genre = genre;
     }
 
-    public int getRuntime() {
+    public String getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(int runtime) {
+    public void setRuntime(String runtime) {
         this.runtime = runtime;
     }
 
-    public int getSeasons() {
+    public long getSeasons() {
         return seasons;
     }
 
-    public void setSeasons(int seasons) {
+    public void setSeasons(long seasons) {
         this.seasons = seasons;
     }
 
-    public int getEpisodes() {
+    public long getEpisodes() {
         return episodes;
     }
 
-    public void setEpisodes(int episodes) {
+    public void setEpisodes(long episodes) {
         this.episodes = episodes;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public int getSeason() {
@@ -139,26 +150,5 @@ public class Show {
 
     public void setSelect(CheckBox select) {
         this.select = select;
-    }
-
-    public String getImage() {
-        String image = "";
-        try {
-            ShowQueries showQueries = new ShowQueries();
-            image = showQueries.getImage(ID);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return image;
-    }
-
-    public void setImage(String image) {
-        try {
-            ShowQueries showQueries = new ShowQueries();
-            showQueries.setImage(ID, image);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

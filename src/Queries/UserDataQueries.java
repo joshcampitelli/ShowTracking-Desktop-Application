@@ -32,16 +32,16 @@ public class UserDataQueries {
         return showList;
     }
 
-    private Show getShowFromID(int id) throws SQLException {
+    private Show getShowFromID(long id) throws SQLException {
         Show show = null;
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-        String sql = "SELECT * FROM shows WHERE ID = " + id;
+        String sql = "SELECT * FROM show_data WHERE ID = " + id;
 
         PreparedStatement ps = myConn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
         while(rs.next()) {
-            show = new Show(id, rs.getString("name"), rs.getInt("year"), rs.getString("genre"), rs.getInt("runtime"), rs.getInt("seasons"), rs.getInt("episodes"), rs.getInt("rating"));
+            show = new Show(id, rs.getString("name"), rs.getString("start_date"), rs.getString("genre"), rs.getString("runtime"), rs.getLong("seasons"), rs.getLong("episodes"), rs.getDouble("rating"), rs.getString("image_URL"), rs.getString("overview"));
         }
 
         myConn.close();
@@ -62,7 +62,7 @@ public class UserDataQueries {
      * @param showID
      * @throws SQLException
      */
-    public void addShow(int userID, int showID) throws SQLException {
+    public void addShow(int userID, long showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "INSERT INTO show_log"
@@ -71,7 +71,7 @@ public class UserDataQueries {
 
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setInt(1,userID);
-        statement.setInt(2,showID);
+        statement.setLong(2,showID);
         statement.setInt(3,1);
         statement.setInt(4,1);
         statement.executeUpdate();
@@ -80,13 +80,13 @@ public class UserDataQueries {
         System.out.println("[Important] Successfully Added Show!");
     }
 
-    public void removeShow(int userID, int showID) throws SQLException {
+    public void removeShow(int userID, long showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "DELETE FROM show_log WHERE user_ID = ? AND show_ID = ?";
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setInt(1, userID);
-        statement.setInt(2, showID);
+        statement.setLong(2, showID);
         statement.executeUpdate();
 
         myConn.close();

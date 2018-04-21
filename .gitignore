@@ -8,3 +8,6 @@ TodoList
 ##Maven##
 target/
 MavenPOM.txt
+
+##Jars##
+/jars

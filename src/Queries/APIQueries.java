@@ -2,31 +2,66 @@ package Queries;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Scanner;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 //TODO: GUI wrapper for this class with text field for entering url, text area for displaying JSON and option to enter
 //TODO: into db.
 class APIQueries {
     //Random Movie Request Tests
-    private static String URL1 = "https://api.themoviedb.org/3/movie/550?api_key=9ae1f37f4a774f763225557376ad2f71";
-    private static String api = "https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US";
-
+    private static String MOVIE = "https://api.themoviedb.org/3/movie/550?api_key=9ae1f37f4a774f763225557376ad2f71";
+    private static String TWD = "https://api.themoviedb.org/3/search/tv?api_key=9ae1f37f4a774f763225557376ad2f71&language=en-US&query=rick%20and%20morty&page=1";
+    private static String TV = "https://api.themoviedb.org/3/tv/60625?api_key=9ae1f37f4a774f763225557376ad2f71";
+    //use poster path and append with: "https://image.tmdb.org/t/p/original/
     public static void main(String [] args) {
-        try {
-            final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-            executorService.scheduleAtFixedRate(APIQueries::getResponse, 0, 100, TimeUnit.SECONDS);
-        } catch (Exception e) {
-            e.printStackTrace();
+        APIQueries apiQueries = new APIQueries();
+
+        for (int i = 3000; i < 3030; i++) {
+            try {
+                JSONParser parser = new JSONParser();
+                Object obj = parser.parse(apiQueries.getResponse("https://api.themoviedb.org/3/tv/" + i + "?api_key=9ae1f37f4a774f763225557376ad2f71"));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                System.out.println(jsonObject);
+
+                System.out.println("ID: " + (long) jsonObject.get("id"));
+                System.out.println("Name: " + jsonObject.get("name"));
+                System.out.println("Release Date: " + jsonObject.get("first_air_date"));
+                System.out.println("Genres: " + jsonObject.get("genres"));
+                System.out.println("Runtime: " + jsonObject.get("episode_run_time"));
+                System.out.println("Seasons: " + jsonObject.get("number_of_seasons"));
+                System.out.println("Episodes: " + jsonObject.get("number_of_episodes"));
+                System.out.println("Episodes: " + jsonObject.get("number_of_episodes"));
+                System.out.println("Vote Average: " + jsonObject.get("vote_average"));
+                System.out.println("Poster: " + jsonObject.get("poster_path"));
+                System.out.println("Overview: " + jsonObject.get("overview"));
+
+                ShowQueries showQueries = new ShowQueries();
+                try {
+                    showQueries.addNewShow((long) jsonObject.get("id"), (String) jsonObject.get("name"), (String) jsonObject.get("first_air_date"), jsonObject.get("genres").toString(),
+                            jsonObject.get("episode_run_time").toString(), (long) jsonObject.get("number_of_seasons"), (long) jsonObject.get("number_of_episodes"),
+                            (double) jsonObject.get("vote_average"), "https://image.tmdb.org/t/p/original/" + jsonObject.get("poster_path"),
+                            (String) jsonObject.get("overview"));
+                    System.out.println("Inserted");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                // System.out.println("========= SEARCH =========");
+                // System.out.println(apiQueries.searchShow(TWD));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private static String getResponse() {
+    private String getResponse(String link) {
         try {
             //inline will store the JSON data streamed in string format
             String inline = "";
-            URL url = new URL(api);
+            URL url = new URL(link);
 
             //Parse URL into HttpURLConnection in order to open the connection in order to get the JSON data
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -55,12 +90,32 @@ class APIQueries {
             }
             //Disconnect the HttpURLConnection stream
             conn.disconnect();
-            System.out.println("JSON Response:");
-            System.out.println(inline);
             return inline;
         } catch (Exception e) {
             e.printStackTrace();
             return "Error";
+        }
+    }
+
+    /**
+     *
+     * @param query keywords used to search for show. Ex: ("The Walking Dead")
+     * @return long id value returned from search results
+     */
+    private String searchShow(String query) {
+        try {
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(getResponse(query));
+            JSONObject jsonObject = (JSONObject)obj;
+            System.out.println(jsonObject);
+            long id = (long)jsonObject.get("id");
+            System.out.println("ID: " + id);
+            String showQuery = "https://api.themoviedb.org/3/tv/" + id + "?api_key=9ae1f37f4a774f763225557376ad2f71";
+            obj = parser.parse(getResponse(showQuery));
+            return (String)obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

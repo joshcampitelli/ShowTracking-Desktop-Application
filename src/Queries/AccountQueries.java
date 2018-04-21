@@ -66,14 +66,16 @@ public class AccountQueries {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "INSERT INTO user_accounts"
-                + " (username, password, firstname, lastname)"
-                + " VALUES (?, ?, ?, ?)";
+                + " (username, password, firstname, lastname, email, age)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setString(1, username);
         statement.setString(2, encodedPass);
         statement.setString(3, firstName);
         statement.setString(4, lastName);
+        statement.setString(5, "");
+        statement.setInt(6, 0);
         statement.executeUpdate();
         myConn.close();
     }
