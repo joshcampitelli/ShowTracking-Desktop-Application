@@ -6,12 +6,20 @@ import Model.User;
 import java.sql.*;
 import java.util.ArrayList;
 
+//Class interacts wit the show_log table in the db
 public class UserDataQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
     private String databasePassWord = "password";
 
+    /**
+     * Method getLoggedShows is used to get all shows that a specific user is tracking on their account.
+     * @param userID unique ID of the desired user
+     * @return ArrayList of All Shows tracked by specified user
+     * @throws SQLException
+     */
     public ArrayList<Show> getLoggedShows(int userID) throws SQLException {
+        ShowQueries showQueries = new ShowQueries();
         ArrayList<Show> showList = new ArrayList<>();
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
         String sql = "SELECT * FROM show_log WHERE user_ID = " + userID;
@@ -20,7 +28,7 @@ public class UserDataQueries {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
-            Show show = getShowFromID(rs.getInt("show_ID"));
+            Show show = showQueries.getShowFromID(rs.getInt("show_ID"));
             if (show == null)
                 continue;
             show.setSeason(rs.getInt("season"));
@@ -30,22 +38,6 @@ public class UserDataQueries {
 
         myConn.close();
         return showList;
-    }
-
-    private Show getShowFromID(long id) throws SQLException {
-        Show show = null;
-        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-        String sql = "SELECT * FROM show_data WHERE ID = " + id;
-
-        PreparedStatement ps = myConn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-
-        while(rs.next()) {
-            show = new Show(id, rs.getString("name"), rs.getString("start_date"), rs.getString("genre"), rs.getString("runtime"), rs.getLong("seasons"), rs.getLong("episodes"), rs.getDouble("rating"), rs.getString("image_URL"), rs.getString("overview"));
-        }
-
-        myConn.close();
-        return show;
     }
 
     public void updateShow(Show show, User user) throws SQLException {

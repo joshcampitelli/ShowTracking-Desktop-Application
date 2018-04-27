@@ -5,19 +5,11 @@ import Model.Show;
 import java.sql.*;
 import java.util.ArrayList;
 
-//todo: when you construct a query class it should connect to DB!
 public class ShowQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
     private String databasePassWord = "password";
 
-    /**
-     * This class will contain methods such as addNewShow, alterShowName, alterShowImage, addShowImage, only\
-     * queries relating to the table: shows.
-     *
-     *
-     * Working Methods: getAvailableShows, addNewShow
-     */
 
     public ArrayList<Show> getAvailableShows() throws SQLException {
         ArrayList<Show> showList = new ArrayList<>();
@@ -58,27 +50,25 @@ public class ShowQueries {
         myConn.close();
     }
 
-    public void setImage(int showID, String imageURL) throws SQLException {
+    /**
+     * Method getShowFromID retrieves a specific show identified by it's ID from the show_data table.
+     * @param id requested id of the show
+     * @return Show 
+     * @throws SQLException
+     */
+    public Show getShowFromID(long id) throws SQLException {
+        Show show = null;
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
+        String sql = "SELECT * FROM show_data WHERE ID = " + id;
 
-        String sql = "UPDATE shows SET image_URL = ? WHERE ID = ?";
-        PreparedStatement statement = myConn.prepareStatement(sql);
-        statement.setString(1, imageURL);
-        statement.setInt(2, showID);
-        statement.executeUpdate();
+        PreparedStatement ps = myConn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while(rs.next()) {
+            show = new Show(id, rs.getString("name"), rs.getString("start_date"), rs.getString("genre"), rs.getString("runtime"), rs.getLong("seasons"), rs.getLong("episodes"), rs.getDouble("rating"), rs.getString("image_URL"), rs.getString("overview"));
+        }
 
         myConn.close();
-    }
-
-    public String getImage(int showID) throws SQLException {
-        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-
-        String sql = "SELECT image_URL FROM shows WHERE ID = ?";
-        PreparedStatement statement = myConn.prepareStatement(sql);
-        statement.setInt(1, showID);
-        ResultSet rs = statement.executeQuery();
-
-        rs.next();
-        return rs.getString("image_URL");
+        return show;
     }
 }

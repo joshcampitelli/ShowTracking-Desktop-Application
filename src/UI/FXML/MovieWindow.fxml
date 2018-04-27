@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="279.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FXML.MovieWindow">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="279.0" prefWidth="712.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.NewShowController">
    <children>
-      <ImageView fx:id="imageView" fitHeight="219.0" fitWidth="175.0" layoutX="14.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coverImage" fitHeight="219.0" fitWidth="175.0" layoutX="14.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Desktop/adw6Lq9FiC9zjYEpOqfq03ituwp.jpg" />
          </image>
@@ -26,7 +28,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="125.0" text="Action / Adventure / Drama">
+      <Label fx:id="genreLbl" layoutX="179.0" layoutY="125.0" text="Action / Adventure / Drama">
          <font>
             <Font size="14.0" />
          </font>
@@ -36,7 +38,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="178.0" layoutY="176.0" text="139 mins.">
+      <Label fx:id="runtimeLbl" layoutX="178.0" layoutY="176.0" text="139 mins.">
          <font>
             <Font size="14.0" />
          </font>
@@ -46,7 +48,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="178.0" layoutY="236.0" prefHeight="20.0" prefWidth="74.0" text="1999-10-15">
+      <Label fx:id="releaseLbl" layoutX="178.0" layoutY="236.0" prefHeight="20.0" prefWidth="74.0" text="1999-10-15">
          <font>
             <Font size="14.0" />
          </font>
