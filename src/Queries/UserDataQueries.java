@@ -6,12 +6,20 @@ import Model.User;
 import java.sql.*;
 import java.util.ArrayList;
 
+//Class interacts wit the show_log table in the db
 public class UserDataQueries {
     private String url = "jdbc:mysql://localhost:3306/user_data?autoReconnect=true&useSSL=false";
     private String databaseUserName = "admin";
     private String databasePassWord = "password";
 
+    /**
+     * Method getLoggedShows is used to get all shows that a specific user is tracking on their account.
+     * @param userID unique ID of the desired user
+     * @return ArrayList of All Shows tracked by specified user
+     * @throws SQLException
+     */
     public ArrayList<Show> getLoggedShows(int userID) throws SQLException {
+        ShowQueries showQueries = new ShowQueries();
         ArrayList<Show> showList = new ArrayList<>();
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
         String sql = "SELECT * FROM show_log WHERE user_ID = " + userID;
@@ -20,7 +28,7 @@ public class UserDataQueries {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
-            Show show = getShowFromID(rs.getInt("show_ID"));
+            Show show = showQueries.getShowFromID(rs.getInt("show_ID"));
             if (show == null)
                 continue;
             show.setSeason(rs.getInt("season"));
@@ -30,22 +38,6 @@ public class UserDataQueries {
 
         myConn.close();
         return showList;
-    }
-
-    private Show getShowFromID(int id) throws SQLException {
-        Show show = null;
-        Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
-        String sql = "SELECT * FROM shows WHERE ID = " + id;
-
-        PreparedStatement ps = myConn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-
-        while(rs.next()) {
-            show = new Show(id, rs.getString("name"), rs.getInt("year"), rs.getString("genre"), rs.getInt("runtime"), rs.getInt("seasons"), rs.getInt("episodes"), rs.getInt("rating"));
-        }
-
-        myConn.close();
-        return show;
     }
 
     public void updateShow(Show show, User user) throws SQLException {
@@ -62,7 +54,7 @@ public class UserDataQueries {
      * @param showID
      * @throws SQLException
      */
-    public void addShow(int userID, int showID) throws SQLException {
+    public void addShow(int userID, long showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "INSERT INTO show_log"
@@ -71,7 +63,7 @@ public class UserDataQueries {
 
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setInt(1,userID);
-        statement.setInt(2,showID);
+        statement.setLong(2,showID);
         statement.setInt(3,1);
         statement.setInt(4,1);
         statement.executeUpdate();
@@ -80,13 +72,13 @@ public class UserDataQueries {
         System.out.println("[Important] Successfully Added Show!");
     }
 
-    public void removeShow(int userID, int showID) throws SQLException {
+    public void removeShow(int userID, long showID) throws SQLException {
         Connection myConn = DriverManager.getConnection(url, databaseUserName, databasePassWord);
 
         String sql = "DELETE FROM show_log WHERE user_ID = ? AND show_ID = ?";
         PreparedStatement statement = myConn.prepareStatement(sql);
         statement.setInt(1, userID);
-        statement.setInt(2, showID);
+        statement.setLong(2, showID);
         statement.executeUpdate();
 
         myConn.close();

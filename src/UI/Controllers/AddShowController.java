@@ -29,11 +29,12 @@ public class AddShowController extends Controller implements Initializable {
     }
 
     public void addShow() {
-        try {
-            showQueries.addNewShow(nameFld.getText(), Integer.valueOf(yearFld.getText()), genreFld.getText(), Integer.valueOf(runtimeFld.getText()), Integer.valueOf(seasonsFld.getText()), Integer.valueOf(episodesFld.getText()), Integer.valueOf(ratingFld.getText()));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //try {
+            //Need to add overview field to gui
+            //showQueries.addNewShow(nameFld.getText(), Integer.valueOf(yearFld.getText()), genreFld.getText(), Integer.valueOf(runtimeFld.getText()), Integer.valueOf(seasonsFld.getText()), Integer.valueOf(episodesFld.getText()), Integer.valueOf(ratingFld.getText()), "");
+        //} catch (SQLException e) {
+          //  e.printStackTrace();
+        //}
         nameFld.setText("");
         yearFld.setText("");
         genreFld.setText("");

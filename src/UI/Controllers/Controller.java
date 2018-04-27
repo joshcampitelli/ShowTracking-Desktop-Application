@@ -99,14 +99,14 @@ public class Controller {
 
     public void openShowWindow(Show show) {
         try {
-            File file = new File("src/UI/FXML/ShowWindow.fxml");
+            File file = new File("src/UI/FXML/MovieWindow.fxml");
             URL url = file.toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
 
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(root, 265, 285));
-            ShowController controller = loader.getController();
+            stage.setScene(new Scene(root, 720, 280));
+            NewShowController controller = loader.getController();
             controller.initData(show);
             stage.show();
         } catch (IOException e) {
