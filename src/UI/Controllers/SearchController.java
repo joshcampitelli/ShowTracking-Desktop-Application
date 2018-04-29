@@ -2,6 +2,7 @@ package UI.Controllers;
 
 import Model.Show;
 import Queries.ShowQueries;
+import Queries.UserDataQueries;
 import UI.ListLayouts.MainLayout;
 import UI.ListLayouts.SearchLayout;
 import javafx.collections.ObservableList;
@@ -15,12 +16,14 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {
 
     private SearchLayout searchLayout = new SearchLayout();
     private ShowQueries showQueries = new ShowQueries();
+    private UserDataQueries userDataQueries = new UserDataQueries();
 
     @FXML
     public ListView<SearchLayout.HBoxCell> showList;
@@ -29,15 +32,26 @@ public class SearchController extends Controller implements Initializable {
     public TextField searchFld;
 
     private ArrayList<Show> list;
+    private ArrayList<Show> userShows;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list = new ArrayList<>();
         try {
+            userShows = userDataQueries.getLoggedShows(getCurrentUser().getUserID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
             list = showQueries.getAvailableShows();
+
+            if (!userShows.isEmpty()) {
+                list.removeAll(userShows);
+            }
+
         } catch (SQLException e) {}
 
-        //Todo: Remove already tracked shows from the search window before displaying.
         ObservableList<SearchLayout.HBoxCell> observableList = searchLayout.createContent(list);
         FilteredList<SearchLayout.HBoxCell> filteredList = new FilteredList<>(observableList);
         showList.setItems(filteredList);
