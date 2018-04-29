@@ -48,6 +48,15 @@ public class Show {
         this.season = season;
     }
 
+    public boolean equals(Object object) {
+        if (object instanceof Show) {
+            Show show = (Show) object;
+            return ID == show.getID();
+        } else {
+            return false;
+        }
+    }
+
     public long getID() {
         return ID;
     }

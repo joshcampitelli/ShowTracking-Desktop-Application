@@ -5,9 +5,11 @@ import Model.Show;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -23,6 +25,7 @@ public class GridWindowController extends Controller implements Initializable {
     public GridPane gridpane;
     public TextField searchFld;
     public ScrollPane scrollPane;
+    public Button findBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,5 +82,11 @@ public class GridWindowController extends Controller implements Initializable {
                 }
             }
         });
+    }
+
+    public void startSearch(ActionEvent event) {
+        createStage("SearchWindow", "Show Search", searchWidth, searchHeight);
+        closeStage(findBtn);
+        event.consume();
     }
 }
