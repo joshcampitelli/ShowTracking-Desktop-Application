@@ -85,6 +85,8 @@ public class MainController extends Controller implements Initializable {
         Show show = hBoxCell.getShow();
         getCurrentUser().removeShow(show);
         event.consume();
+        closeStage(editShowBtn);
+        createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
     }
 
     public void logout(ActionEvent event) {
