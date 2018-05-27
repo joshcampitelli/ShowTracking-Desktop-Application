@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -54,7 +55,11 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
             primaryStage.setTitle(title);
-            primaryStage.setScene(new Scene(root, w, h));
+            Scene scene = new Scene(root, w, h);
+            primaryStage.setScene(scene);
+
+            scene.setFill(Color.TRANSPARENT);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {

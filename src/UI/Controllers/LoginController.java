@@ -25,7 +25,7 @@ public class LoginController extends Controller implements Initializable {
         if (login) {
             setCurrentUser(usernameField.getText());
             closeStage(loginBtn);
-            createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
+            createStage("NewMainWindow", "Show Tracking", mainWidth, mainHeight);
         }
         event.consume();
     }
