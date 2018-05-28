@@ -75,20 +75,10 @@ public class SearchController extends Controller implements Initializable {
     }
 
     public void addSelectedShows(ActionEvent event) {
-        boolean addShow = false;
-
         for (Show show : list) {
             if (show.getSelect().isSelected()) {
                 getCurrentUser().addShow(show);
-                addShow = true;
             }
-        }
-
-        if (addShow) {
-            //Only close stage if user has selected a show.
-            closeStage(addShowsBtn);
-            createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
-            event.consume();
         }
     }
 

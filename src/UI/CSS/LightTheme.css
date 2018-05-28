@@ -38,6 +38,11 @@
     -fx-background-color: -fx-focus-color;
 }
 
+.logo {
+    -fx-font-family: "Bless";
+    -fx-font-size: 20;
+}
+
 .scroll-pane {
     -fx-background-color: #1d1d1d;
 }
