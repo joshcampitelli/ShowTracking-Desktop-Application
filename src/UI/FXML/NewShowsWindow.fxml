@@ -16,7 +16,7 @@
                     <Insets top="20.0" />
                 </padding>
             </ListView>
-            <Button fx:id="editShowBtn" layoutX="229.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="109.0" text="Edit Show" />
+            <Button fx:id="editShowBtn" layoutX="229.0" layoutY="12.0" mnemonicParsing="false" onAction="#editShow" prefHeight="28.0" prefWidth="109.0" text="Edit Show" />
             <Label layoutX="405.0" layoutY="22.0" text="Season" />
             <Label layoutX="483.0" layoutY="22.0" text="Episode" />
         </children>

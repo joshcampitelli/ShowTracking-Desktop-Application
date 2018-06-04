@@ -86,11 +86,19 @@ public class MainController extends Controller implements Initializable {
                 arr3.setVisible(false);
                 arr4.setVisible(false);
             } else if (event.getTarget() == accountTab) {
-
+                File file = new File("src\\UI\\FXML\\NewAccountWindow.fxml");
+                URL url = file.toURI().toURL();
+                FXMLLoader loader = new FXMLLoader(url);
+                AnchorPane accountWindow = loader.load();
+                content.getChildren().add(accountWindow);
+                arr1.setVisible(false);
+                arr2.setVisible(false);
+                arr3.setVisible(true);
+                arr4.setVisible(false);
             } else if (event.getTarget() == settingsTab) {
 
             } else if (event.getTarget() == exitTab) {
-                closeStage(editShowBtn);
+                closeImageView(exitTab);
             }
         } catch (IOException e) {
             e.printStackTrace();

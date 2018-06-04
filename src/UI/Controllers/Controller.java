@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -42,6 +43,11 @@ public class Controller {
     protected void closeStage(ButtonBase button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+    }
+
+    protected  void closeImageView(ImageView imageView) {
+        Stage stage = (Stage) (imageView.getScene().getWindow());
         stage.close();
     }
 
