@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,15 +21,17 @@ public class LoginController extends Controller implements Initializable {
     public TextField passwordField;
     public Button loginBtn;
     public Button signUpBtn;
+    public AnchorPane loginWindow;
+    public AnchorPane anchorPane;
 
     public void startLogin(ActionEvent event) {
         boolean login = login(usernameField.getText(), passwordField.getText());
         if (login) {
             setCurrentUser(usernameField.getText());
-            closeStage(loginBtn);
-            createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
         }
         event.consume();
+        loginWindow.setVisible(false);
+        anchorPane.setVisible(false);
     }
 
     public void startSignUp(ActionEvent event) {

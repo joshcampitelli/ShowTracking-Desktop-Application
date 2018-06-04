@@ -19,7 +19,7 @@ class APIQueries {
     public static void main(String [] args) {
         APIQueries apiQueries = new APIQueries();
 
-        for (int i = 3000; i < 3030; i++) {
+        for (int i = 1; i < 5; i++) {
             try {
                 JSONParser parser = new JSONParser();
                 Object obj = parser.parse(apiQueries.getResponse("https://api.themoviedb.org/3/tv/" + i + "?api_key=9ae1f37f4a774f763225557376ad2f71"));
@@ -38,6 +38,8 @@ class APIQueries {
                 System.out.println("Vote Average: " + jsonObject.get("vote_average"));
                 System.out.println("Poster: " + jsonObject.get("poster_path"));
                 System.out.println("Overview: " + jsonObject.get("overview"));
+                System.out.println("Status: " + jsonObject.get("status"));
+
 
                 ShowQueries showQueries = new ShowQueries();
                 try {

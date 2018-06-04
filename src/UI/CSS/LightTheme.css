@@ -1,0 +1,74 @@
+.background {
+    -fx-background-color: #3D4956;
+}
+
+.text-field {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-font-size: 10pt;
+    -fx-background-color: rgba(39, 70, 86, 0.34);
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.button {
+    -fx-background-color: #eda678;
+    -fx-border-radius: 5em;
+    -fx-background-radius: 5em;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #000000;
+}
+
+.list-view{
+    -fx-base: #3D4956;
+    -fx-control-inner-background: #3D4956;
+    -fx-background-color: #3D4956;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.list-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.logo {
+    -fx-font-family: "Bless";
+    -fx-font-size: 20;
+}
+
+.scroll-pane {
+    -fx-background-color: #1d1d1d;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: #1d1d1d;
+}

@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -44,6 +46,11 @@ public class Controller {
         stage.close();
     }
 
+    protected  void closeImageView(ImageView imageView) {
+        Stage stage = (Stage) (imageView.getScene().getWindow());
+        stage.close();
+    }
+
     protected void createStage(String fxmlClass, String title, int w, int h) {
         try {
             //Create new stage for the new window
@@ -54,7 +61,11 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
             primaryStage.setTitle(title);
-            primaryStage.setScene(new Scene(root, w, h));
+            Scene scene = new Scene(root, w, h);
+            primaryStage.setScene(scene);
+
+            scene.setFill(Color.TRANSPARENT);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {

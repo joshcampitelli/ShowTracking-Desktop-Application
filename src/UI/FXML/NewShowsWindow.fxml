@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="453.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/LightTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.HomeController">
+    <AnchorPane fx:id="showWindow" layoutY="63.0" prefHeight="516.0" prefWidth="600.0" style="-fx-background-color: #3D4956;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <TextField fx:id="searchFld" layoutX="14.0" layoutY="13.0" prefHeight="25.0" prefWidth="187.0" promptText="Search Shows" />
+            <ListView fx:id="dataList" layoutX="7.0" layoutY="50.0" onMouseClicked="#viewShow" prefHeight="394.0" prefWidth="586.0" style="-fx-background-color: #3D4956;">
+                <padding>
+                    <Insets top="20.0" />
+                </padding>
+            </ListView>
+            <Button fx:id="editShowBtn" layoutX="229.0" layoutY="12.0" mnemonicParsing="false" onAction="#editShow" prefHeight="28.0" prefWidth="109.0" text="Edit Show" />
+            <Label layoutX="405.0" layoutY="22.0" text="Season" />
+            <Label layoutX="483.0" layoutY="22.0" text="Episode" />
+        </children>
+    </AnchorPane>
+</AnchorPane>
