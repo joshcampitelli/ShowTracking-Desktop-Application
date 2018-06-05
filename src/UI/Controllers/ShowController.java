@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -23,7 +24,7 @@ public class ShowController extends Controller implements Initializable{
     public Label releaseLbl;
     public Label genreLbl;
     public Label runtimeLbl;
-    public Label overviewLbl;
+    public TextArea overviewLbl;
     public ImageView coverImage;
     public AnchorPane anchorPane;
     //public Label seasonsLbl;
@@ -49,8 +50,8 @@ public class ShowController extends Controller implements Initializable{
     public void initData(Show show) {
         this.show = show;
         userDataQueries = new UserDataQueries();
-        episode.setText(show.getEpisode() + "");
-        season.setText(show.getSeason() + "");
+        episode.setText(show.getEpisode() + ""); //todo: ep / total eps
+        season.setText(show.getSeason() + "");   //todo: se / total ses
 
         overviewLbl.setText(show.getOverview());
         genreLbl.setText(show.getGenre());
@@ -105,7 +106,7 @@ public class ShowController extends Controller implements Initializable{
         returnHomePage();
     }
 
-    public void returnHomePage() {
+    private void returnHomePage() {
         try {
             File file = new File("src/UI/FXML/NewShowsWindow.fxml");
             URL url = file.toURI().toURL();

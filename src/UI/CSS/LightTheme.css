@@ -43,10 +43,6 @@
     -fx-font-size: 20;
 }
 
-.scroll-pane {
-    -fx-background-color: #1d1d1d;
-}
-
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
 }
@@ -70,5 +66,27 @@
 }
 
 .scroll-pane > .corner {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #3D4956;
+}
+
+.text-area {
+    -fx-background-color: #3D4956;
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.text-area .content {
+    -fx-background-color: #3D4956;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #3D4956;
+}
+
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
 }

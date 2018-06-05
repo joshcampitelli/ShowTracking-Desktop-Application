@@ -38,12 +38,6 @@ public class MainController extends Controller implements Initializable {
     @FXML /* Windows Linked to Tabs */
     public AnchorPane content;
 
-    @FXML
-    public Button editShowBtn;
-    public ListView<HBoxCell> dataList;
-    public MenuBar myMenuBar;
-    public TextField searchFld;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

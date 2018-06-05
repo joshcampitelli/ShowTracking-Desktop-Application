@@ -100,6 +100,7 @@ public class HomeController extends Controller implements Initializable {
         createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
     }
 
+    /*Broken*/
     public void viewShow(MouseEvent mouseEvent) {
         if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
             if(mouseEvent.getClickCount() == 2){
