@@ -76,14 +76,14 @@ public class Controller {
     /*Could pass arguments to initialize data on the controller*/
     public void openEditWindow(Show show) {
         try {
-            File file = new File("src/UI/FXML/EditWindow.fxml");
+            File file = new File("src/UI/FXML/NewShowEditWindow.fxml");
             URL url = file.toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
 
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene(root, editWidth, editHeight));
-            EditController controller = loader.getController();
+            ShowController controller = loader.getController();
             controller.initData(show);
             stage.show();
         } catch (IOException e) {
@@ -102,23 +102,6 @@ public class Controller {
             stage.setScene(new Scene(root, 360, 303));
             AccountController controller = loader.getController();
             controller.initData(currentUser);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openShowWindow(Show show) {
-        try {
-            File file = new File("src/UI/FXML/MovieWindow.fxml");
-            URL url = file.toURI().toURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(root, 720, 280));
-            NewShowController controller = loader.getController();
-            controller.initData(show);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

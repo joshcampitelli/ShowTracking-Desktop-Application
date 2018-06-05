@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
 public class MainController extends Controller implements Initializable {
     @FXML /* TopBar Menu Tabs*/
     public ImageView showTab, searchTab, accountTab, settingsTab, exitTab;
-    public ImageView arr1, arr2, arr3, arr4;
+    public ImageView arr1, arr2, arr3, arr4; //Arrows
 
     @FXML /* Windows Linked to Tabs */
     public AnchorPane content;
