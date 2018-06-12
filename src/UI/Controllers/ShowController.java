@@ -3,7 +3,6 @@ package UI.Controllers;
 import Model.Show;
 import Queries.UserDataQueries;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,8 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -94,7 +91,7 @@ public class ShowController extends Controller implements Initializable{
     }
 
     public void cancel() {
-        returnHomePage();
+        openPane(anchorPane, "ShowsWindow");
     }
 
     public void confirm() {
@@ -103,19 +100,6 @@ public class ShowController extends Controller implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        returnHomePage();
-    }
-
-    private void returnHomePage() {
-        try {
-            File file = new File("src/UI/FXML/NewShowsWindow.fxml");
-            URL url = file.toURI().toURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            AnchorPane homeWindow = loader.load();
-            anchorPane.getChildren().removeAll();
-            anchorPane.getChildren().add(homeWindow);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        openPane(anchorPane, "ShowsWindow");
     }
 }

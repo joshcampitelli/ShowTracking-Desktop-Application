@@ -4,9 +4,14 @@ import DataOperations.DataValidation;
 import Queries.AccountQueries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -23,6 +28,7 @@ public class SignUpController extends Controller implements Initializable {
     public TextField passwordField;
     public TextField firstNameField;
     public TextField lastNameField;
+    public AnchorPane signUpWindow;
 
     public void createAccount(ActionEvent event) {
         if (!DataValidation.validUser(usernameField.getText()) || !DataValidation.validPass(passwordField.getText())) {
@@ -34,8 +40,18 @@ public class SignUpController extends Controller implements Initializable {
         }
 
         createAccount(usernameField.getText(), passwordField.getText(), firstNameField.getText(), lastNameField.getText());
-        closeStage(createAccountBtn);
-        createStage("LoginWindow", "Login Window", loginWidth, loginHeight);
+
+        try { /*Changes controller improperly*/
+            File file = new File("src/UI/FXML/LoginWindow.fxml");
+            URL url = file.toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            AnchorPane loginWindow = loader.load();
+            signUpWindow.getChildren().removeAll();
+            signUpWindow.getChildren().add(loginWindow);
+            event.consume();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         event.consume();
     }
 

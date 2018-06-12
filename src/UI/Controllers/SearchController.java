@@ -3,7 +3,6 @@ package UI.Controllers;
 import Model.Show;
 import Queries.ShowQueries;
 import Queries.UserDataQueries;
-import UI.ListLayouts.MainLayout;
 import UI.ListLayouts.SearchLayout;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,7 +15,6 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class SearchController extends Controller implements Initializable {

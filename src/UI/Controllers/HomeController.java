@@ -10,16 +10,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.io.File;
@@ -69,7 +65,7 @@ public class HomeController extends Controller implements Initializable {
         try {
             Show show = hBoxCell.getShow();
 
-            File file = new File("src/UI/FXML/NewShowEditWindow.fxml");
+            File file = new File("src/UI/FXML/ShowEditWindow.fxml");
             URL url = file.toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             AnchorPane editWindow = loader.load();
