@@ -8,18 +8,15 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.File;
-import java.net.URL;
-
 public class RunApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         /*Run on laptop IDE*/
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/NewMainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/MainWindow.fxml"));
 
         /*Run on desktop IDE*/
-        //URL url = new File("C:\\Users\\joshc\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\NewMainWindow.fxml").toURL();
-        //URL url = new File("C:\\Users\\Josh\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\NewShowsWindow.fxml").toURL();
+        //URL url = new File("C:\\Users\\joshc\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\MainWindow.fxml").toURL();
+        //URL url = new File("C:\\Users\\Josh\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\ShowsWindow.fxml").toURL();
 
         //Parent root = FXMLLoader.load(url);
 

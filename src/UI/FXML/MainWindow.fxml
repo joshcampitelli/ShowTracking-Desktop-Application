@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="514.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainController">
-    <children>
-        <ListView fx:id="dataList" layoutX="31.0" layoutY="93.0" onMouseClicked="#viewShow" prefHeight="412.0" prefWidth="535.0">
-            <padding>
-                <Insets top="20.0" />
-            </padding>
-        </ListView>
-        <TextField fx:id="searchFld" layoutX="31.0" layoutY="37.0" prefHeight="25.0" prefWidth="234.0" promptText="Search Shows" />
-        <MenuBar fx:id="myMenuBar" layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Account">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#editAccount" text="Edit Account" />
-                        <MenuItem mnemonicParsing="false" onAction="#logout" text="Logout" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#deleteShow" text="Remove Show" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <Button layoutX="446.0" layoutY="37.0" mnemonicParsing="false" onAction="#startSearch" prefHeight="28.0" prefWidth="120.0" text="Find New Shows" />
-        <Label layoutX="42.0" layoutY="72.0" text="Show Name" />
-        <Label layoutX="468.0" layoutY="72.0" text="Episode" />
-        <Label layoutX="377.0" layoutY="72.0" text="Season" />
-        <Button fx:id="editShowBtn" layoutX="320.0" layoutY="37.0" mnemonicParsing="false" onAction="#editShow" prefHeight="28.0" prefWidth="120.0" text="Edit Show" />
-        <Separator layoutX="30.0" layoutY="72.0" prefHeight="1.0" prefWidth="535.0" />
-    </children>
+<AnchorPane prefHeight="515.0" prefWidth="600.0" style="-fx-background-color: null;" styleClass="background" stylesheets="@../CSS/LightTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MenuController">
+   <children>
+      <ImageView fx:id="arr1" fitHeight="20.0" fitWidth="15.0" layoutX="64.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Data/icons8-sort-up-filled-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arr2" fitHeight="20.0" fitWidth="15.0" layoutX="173.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Data/icons8-sort-up-filled-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arr3" fitHeight="20.0" fitWidth="15.0" layoutX="289.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Data/icons8-sort-up-filled-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arr4" fitHeight="20.0" fitWidth="15.0" layoutX="405.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Data/icons8-sort-up-filled-50.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="topbar" prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #3D4956;">
+         <children>
+            <ImageView fx:id="showTab" fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="12.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/icons8-tv-show-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="searchTab" fitHeight="32.0" fitWidth="32.0" layoutX="166.0" layoutY="12.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/icons8-search-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="exitTab" fitHeight="32.0" fitWidth="32.0" layoutX="512.0" layoutY="12.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/icons8-shutdown-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="accountTab" fitHeight="32.0" fitWidth="32.0" layoutX="280.0" layoutY="12.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/icons8-user-filled-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="settingsTab" fitHeight="32.0" fitWidth="32.0" layoutX="397.0" layoutY="12.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/icons8-settings-100.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="content" layoutY="68.0" prefHeight="453.0" prefWidth="600.0" />
+   </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
@@ -14,8 +15,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,6 +29,7 @@ public class HomeController extends Controller implements Initializable {
     public Button editShowBtn;
     public ListView<HBoxCell> dataList;
     public TextField searchFld;
+    public AnchorPane showWindow;
 
     private MainLayout mainLayout = new MainLayout();
 
@@ -57,10 +62,22 @@ public class HomeController extends Controller implements Initializable {
             return;
         }
 
-        Show show = hBoxCell.getShow();
-        openEditWindow(show);
-        closeStage(editShowBtn);
-        event.consume();
+        try {
+            Show show = hBoxCell.getShow();
+
+            File file = new File("src/UI/FXML/ShowEditWindow.fxml");
+            URL url = file.toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            AnchorPane editWindow = loader.load();
+
+            ShowController controller = loader.getController();
+            controller.initData(show);
+
+            showWindow.getChildren().add(editWindow);
+            event.consume();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteShow(ActionEvent event) {
@@ -79,6 +96,7 @@ public class HomeController extends Controller implements Initializable {
         createStage("MainWindow", "Show Tracking", mainWidth, mainHeight);
     }
 
+    /*Broken*/
     public void viewShow(MouseEvent mouseEvent) {
         if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
             if(mouseEvent.getClickCount() == 2){
@@ -91,7 +109,6 @@ public class HomeController extends Controller implements Initializable {
 
                 Show show = hBoxCell.getShow();
 
-                openShowWindow(show);
             }
         }
     }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="453.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/LightTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ShowController">
+    <AnchorPane fx:id="editWindow" prefHeight="453.0" prefWidth="600.0" style="-fx-background-color: #3D4956;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Button fx:id="confirmBtn" layoutX="138.0" layoutY="394.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
+         <Button fx:id="cancelBtn" layoutX="37.0" layoutY="394.0" mnemonicParsing="false" onAction="#cancel" prefHeight="28.0" prefWidth="66.0" style="-fx-background-color: #515D6D;" text="Cancel" />
+         <Label layoutX="26.0" layoutY="295.0" text="Episode:" />
+         <Label layoutX="28.0" layoutY="348.0" text="Season:" />
+         <Button fx:id="epIncBtn" layoutX="171.0" layoutY="292.0" mnemonicParsing="false" onAction="#incrementEp" text="+" />
+         <Label fx:id="episode" layoutX="132.0" layoutY="295.0" prefHeight="21.0" prefWidth="28.0" />
+         <Button fx:id="seIncBtn" layoutX="171.0" layoutY="345.0" mnemonicParsing="false" onAction="#incrementSe" text="+" />
+         <Label fx:id="season" layoutX="132.0" layoutY="348.0" prefHeight="21.0" prefWidth="28.0" />
+         <Button fx:id="epDecBtn" layoutX="94.0" layoutY="292.0" mnemonicParsing="false" onAction="#decrementEp" prefHeight="28.0" prefWidth="28.0" text="-" />
+         <Button fx:id="seDecBtn" layoutX="94.0" layoutY="345.0" mnemonicParsing="false" onAction="#decrementSe" prefHeight="28.0" prefWidth="28.0" text="-" />
+         <ImageView fx:id="coverImage" fitHeight="262.0" fitWidth="208.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         </ImageView>
+         <TextArea fx:id="overviewLbl" editable="false" layoutX="222.0" layoutY="103.0" prefHeight="335.0" prefWidth="362.0" text="An unassertive, defeated man discovers that he has an alter-ego, a sociopathic anarchist/terrorist who is plotting the destruction of society, and he must silence the destructive element of his personality before calamitous bombing schemes occur nationwide." wrapText="true" />
+         <Label layoutX="232.0" layoutY="14.0" prefHeight="15.0" prefWidth="74.0" text="GENRE:">
+            <font>
+               <Font name="Agency FB Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="genreLbl" layoutX="294.0" layoutY="15.0" prefHeight="21.0" prefWidth="245.0" text="Action / Adventure / Drama">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="232.0" layoutY="44.0" prefHeight="15.0" prefWidth="74.0" text="RUN TIME:">
+            <font>
+               <Font name="Agency FB Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="runtimeLbl" layoutX="313.0" layoutY="44.0" prefHeight="21.0" prefWidth="135.0" text="139 mins.">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="231.0" layoutY="75.0" prefHeight="22.0" prefWidth="150.0" text="RELEASE DATE:">
+            <font>
+               <Font name="Agency FB Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="releaseLbl" layoutX="344.0" layoutY="76.0" prefHeight="21.0" prefWidth="157.0" text="1999-10-15">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
+    </AnchorPane>
+</AnchorPane>

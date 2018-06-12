@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -26,23 +25,19 @@ public class AccountController extends Controller implements Initializable {
     public TextField emailFld;
     public TextField passwordFld;
     public TextField ageFld;
-
     public Button saveBtn;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         accountQueries = new AccountQueries();
-    }
-
-    public void initData(User user) {
-        this.user = user;
+        this.user = getCurrentUser();
         idLbl.setText(idLbl.getText() + " " + user.getUserID());
         usernameLbl.setText(user.getUsername());
-        firstNameFld.setText(user.getFirstName());
-        lastNameFld.setText(user.getLastName());
-        emailFld.setText(user.getEmail());
-        ageFld.setText("" + user.getAge());
+        firstNameFld.setPromptText(user.getFirstName());
+        lastNameFld.setPromptText(user.getLastName());
+        emailFld.setPromptText(user.getEmail());
+        ageFld.setPromptText("" + user.getAge());
     }
 
     public void updateAccount() {

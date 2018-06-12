@@ -1,12 +1,12 @@
 package UI.Controllers;
 
-import Model.Show;
 import Model.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,17 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Controller {
-    //TODO: size variables should be final
-    int loginHeight = 275;
-    int loginWidth = 300;
-    int signUpHeight = loginHeight;
-    int signUpWidth = loginWidth;
     int mainHeight = 515;
     int mainWidth = 600;
-    int searchHeight = 360;
-    int searchWidth = 445;
-    int editWidth = 240;
-    int editHeight = 195;
 
     //static so when modified in one subclass, changes for all
     private static User currentUser;
@@ -39,7 +30,6 @@ public class Controller {
         return currentUser;
     }
 
-    //Todo: use event to get handle to the window.
     protected void closeStage(ButtonBase button) {
         // get a handle to the stage
         Stage stage = (Stage) button.getScene().getWindow();
@@ -73,53 +63,14 @@ public class Controller {
         }
     }
 
-    /*Could pass arguments to initialize data on the controller*/
-    public void openEditWindow(Show show) {
-        try {
-            File file = new File("src/UI/FXML/EditWindow.fxml");
+    protected void openPane(AnchorPane anchorPane, String fxml) {
+        try { /*Changes controller improperly*/
+            File file = new File("src/UI/FXML/" + fxml + ".fxml");
             URL url = file.toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(root, editWidth, editHeight));
-            EditController controller = loader.getController();
-            controller.initData(show);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openAccountWindow() {
-        try {
-            File file = new File("src/UI/FXML/AccountWindow.fxml");
-            URL url = file.toURI().toURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(root, 360, 303));
-            AccountController controller = loader.getController();
-            controller.initData(currentUser);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openShowWindow(Show show) {
-        try {
-            File file = new File("src/UI/FXML/MovieWindow.fxml");
-            URL url = file.toURI().toURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(root, 720, 280));
-            NewShowController controller = loader.getController();
-            controller.initData(show);
-            stage.show();
+            AnchorPane newPane = loader.load();
+            anchorPane.getChildren().removeAll();
+            anchorPane.getChildren().add(newPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
