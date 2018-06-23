@@ -24,48 +24,22 @@ public class MenuController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        arr1.setVisible(false);
-        arr2.setVisible(false);
-        arr3.setVisible(false);
-        arr4.setVisible(false);
+        setArrows(arr1, arr2, arr3, arr4);
+        toggleArrows(0);
         openPane(content, "LoginWindow");
     }
 
     @FXML
     private void handleButtonAction (MouseEvent event) {
         if (event.getTarget() == showTab) {
-            openPane(content, "ShowsWindow");
-            arr1.setVisible(true);
-            arr2.setVisible(false);
-            arr3.setVisible(false);
-            arr4.setVisible(false);
+            openPane(content, "HomeWindow");
+            toggleArrows(1);
         } else if (event.getTarget() == searchTab) {
+            toggleArrows(2);
             openPane(content, "SearchWindow");
-            arr1.setVisible(false);
-            arr2.setVisible(true);
-            arr3.setVisible(false);
-            arr4.setVisible(false);
         } else if (event.getTarget() == accountTab) {
-
-            try { /*Changes controller improperly*/
-                File file = new File("src/UI/FXML/AccountWindow.fxml");
-                URL url = file.toURI().toURL();
-                FXMLLoader loader = new FXMLLoader(url);
-               // AccountController accountController = loader.getController();
-               // if (getCurrentUser() != null) {
-               //     accountController.initData(getCurrentUser());
-               // }
-                AnchorPane newPane = loader.load();
-                content.getChildren().removeAll();
-                content.getChildren().add(newPane);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            arr1.setVisible(false);
-            arr2.setVisible(false);
-            arr3.setVisible(true);
-            arr4.setVisible(false);
+            openPane(content, "AccountWindow");
+            toggleArrows(3);
         } else if (event.getTarget() == settingsTab) {
             //Dark/Light/Blue Theme changes through CSS
         } else if (event.getTarget() == exitTab) {

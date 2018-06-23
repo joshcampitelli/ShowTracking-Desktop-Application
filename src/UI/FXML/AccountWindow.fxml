@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="453.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/LightTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AccountController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="453.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/LightTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="accountWindow" layoutX="10.0" layoutY="10.0" prefHeight="453.0" prefWidth="600.0" styleClass="background" stylesheets="@../CSS/LightTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="78.0" fitWidth="87.0" layoutX="29.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
                <image>

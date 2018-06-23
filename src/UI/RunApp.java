@@ -16,7 +16,7 @@ public class RunApp extends Application {
 
         /*Run on desktop IDE*/
         //URL url = new File("C:\\Users\\joshc\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\MainWindow.fxml").toURL();
-        //URL url = new File("C:\\Users\\Josh\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\ShowsWindow.fxml").toURL();
+        //URL url = new File("C:\\Users\\Josh\\Dropbox\\JAVA\\ShowTracking-Desktop-Application\\src\\UI\\FXML\\HomeWindow.fxml").toURL();
 
         //Parent root = FXMLLoader.load(url);
 

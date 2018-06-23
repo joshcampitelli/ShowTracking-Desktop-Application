@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class SearchController extends Controller implements Initializable {
     public Button addShowsBtn;
     public Button cancelBtn;
     public TextField searchFld;
+    public AnchorPane searchWindow;
 
     private ArrayList<Show> list;
     private ArrayList<Show> userShows;
@@ -80,9 +83,9 @@ public class SearchController extends Controller implements Initializable {
         }
     }
 
+    //todo: swap menu arrows each anchor swap
     public void closeWindow(ActionEvent event) {
-        closeStage(cancelBtn);
-        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+        openPane(searchWindow, "HomeWindow");
         event.consume();
     }
 }
