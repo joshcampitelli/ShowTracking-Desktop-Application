@@ -22,8 +22,8 @@
                <Image url="@../Data/login%20image.png" />
             </image>
          </ImageView>
-         <Button id="signupbtn" fx:id="createAccountBtn" layoutX="234.0" layoutY="348.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="132.0" text="Create Account" />
-         <Text layoutX="205.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="190.00909423828125">
+         <Button id="signupbtn" fx:id="createAccountBtn" layoutX="300.0" layoutY="349.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="125.0" text="Create Account" />
+         <Text layoutX="205.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="190.00909423828125">
             <font>
                <Font size="32.0" />
             </font>
@@ -42,6 +42,7 @@
          <TextField fx:id="lastNameField" layoutX="234.0" layoutY="193.0" prefHeight="25.0" prefWidth="179.0" promptText="Last Name" />
          <TextField fx:id="usernameField" layoutX="234.0" layoutY="245.0" prefHeight="25.0" prefWidth="179.0" promptText="Username" />
          <PasswordField fx:id="passwordField" layoutX="234.0" layoutY="294.0" prefHeight="25.0" prefWidth="179.0" promptText="Password" />
+         <Button id="signupbtn" fx:id="loginBtn" layoutX="180.0" layoutY="349.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #515D6D;" text="Login" />
       </children>
     </AnchorPane>
 </AnchorPane>

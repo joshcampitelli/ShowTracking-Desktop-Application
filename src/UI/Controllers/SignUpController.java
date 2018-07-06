@@ -64,6 +64,10 @@ public class SignUpController extends Controller implements Initializable {
         }
     }
 
+    public void login() {
+        openPane(signUpWindow, "LoginWindow");
+    }
+
     public void createAccount(String username, String password, String firstName, String lastName) {
         try {
             accountQueries.addAccount(firstName, lastName, username, password);
