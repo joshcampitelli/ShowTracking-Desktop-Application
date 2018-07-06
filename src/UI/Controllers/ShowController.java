@@ -91,7 +91,7 @@ public class ShowController extends Controller implements Initializable{
     }
 
     public void cancel() {
-        openPane(anchorPane, "ShowsWindow");
+        openPane(anchorPane, "HomeWindow");
     }
 
     public void confirm() {
@@ -100,6 +100,6 @@ public class ShowController extends Controller implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        openPane(anchorPane, "ShowsWindow");
+        openPane(anchorPane, "HomeWindow");
     }
 }

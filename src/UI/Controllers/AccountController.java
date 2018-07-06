@@ -42,6 +42,9 @@ public class AccountController extends Controller implements Initializable {
         ageFld.setPromptText("" + user.getAge());
     }
 
+    /**
+     * todo: needs to check which fields have changed or if they are = "".
+     */
     public void updateAccount() {
         try {
             accountQueries.updateAccount(user.getUserID(), firstNameFld.getText(), lastNameFld.getText(), emailFld.getText(), Integer.valueOf(ageFld.getText()));

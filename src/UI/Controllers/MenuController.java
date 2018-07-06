@@ -31,13 +31,13 @@ public class MenuController extends Controller implements Initializable {
 
     @FXML
     private void handleButtonAction (MouseEvent event) {
-        if (event.getTarget() == showTab) {
+        if (event.getTarget() == showTab && getCurrentUser() != null) {
             openPane(content, "HomeWindow");
             toggleArrows(1);
-        } else if (event.getTarget() == searchTab) {
+        } else if (event.getTarget() == searchTab && getCurrentUser() != null) {
             toggleArrows(2);
             openPane(content, "SearchWindow");
-        } else if (event.getTarget() == accountTab) {
+        } else if (event.getTarget() == accountTab && getCurrentUser() != null) {
             openPane(content, "AccountWindow");
             toggleArrows(3);
         } else if (event.getTarget() == settingsTab) {
