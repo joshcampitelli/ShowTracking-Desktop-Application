@@ -19,11 +19,35 @@ public class Controller {
     int mainHeight = 515;
     int mainWidth = 600;
 
-    //static so when modified in one subclass, changes for all
     private static User currentUser;
+    private ImageView arr1, arr2, arr3, arr4;
 
     public void setCurrentUser(String username) {
         currentUser = new User(username);
+    }
+
+    //Get handle to arrows for access from other controllers
+    public void setArrows(ImageView arr1, ImageView arr2, ImageView arr3, ImageView arr4) {
+        this.arr1 = arr1;
+        this.arr2 = arr2;
+        this.arr3 = arr3;
+        this.arr4 = arr4;
+    }
+
+    //SetVisible to selected arrow, 0 to set all invisible
+    public void toggleArrows(int arrNum) {
+        if (arrNum == 2)
+            arr2.setVisible(true);
+        switch (arrNum) {
+            case 1: {arr1.setVisible(true);}
+            case 2: {arr2.setVisible(true);}
+            case 3: {arr3.setVisible(true);}
+            case 4: {arr4.setVisible(true);}
+            case 0: {arr1.setVisible(true);
+                    arr2.setVisible(false);
+                    arr3.setVisible(false);
+                    arr4.setVisible(false);}
+        }
     }
 
     public User getCurrentUser() {

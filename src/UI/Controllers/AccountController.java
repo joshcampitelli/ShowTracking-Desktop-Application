@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -26,6 +27,7 @@ public class AccountController extends Controller implements Initializable {
     public TextField passwordFld;
     public TextField ageFld;
     public Button saveBtn;
+    public AnchorPane accountWindow;
 
 
     @Override
@@ -48,12 +50,10 @@ public class AccountController extends Controller implements Initializable {
             e.printStackTrace();
         }
 
-        closeStage(saveBtn);
-        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+        openPane(accountWindow, "HomeWindow");
     }
 
     public void cancel () {
-        closeStage(saveBtn);
-        createStage("MainWindow", "Show Tracker", mainWidth, mainHeight);
+        openPane(accountWindow, "HomeWindow");
     }
 }
