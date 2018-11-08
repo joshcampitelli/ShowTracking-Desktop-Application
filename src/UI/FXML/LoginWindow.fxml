@@ -24,6 +24,11 @@
                <Image url="@../Data/icons8-lock-100.png" />
             </image>
          </ImageView>
+         <ImageView fitHeight="163.0" fitWidth="559.0" layoutX="21.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../Data/logo_fitted.png" />
+            </image>
+         </ImageView>
       </children>
     </AnchorPane>
 </AnchorPane>

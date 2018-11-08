@@ -35,6 +35,8 @@ public class Controller {
     }
 
     //SetVisible to selected arrow, 0 to set all invisible
+    //Each FXML has it's own arrow, initialize method sets visible
+    //along with openpane method sets invisible.
     public void toggleArrows(int arrNum) {
         if (arrNum == 2)
             arr2.setVisible(true);
